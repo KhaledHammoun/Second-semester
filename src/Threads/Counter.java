@@ -6,15 +6,20 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Counter
 {
   private int counter;
+  private int counterTwo;
+
   private Lock lock;
+  private Lock lockTwo;
 
   public Counter()
   {
     counter = 0;
+    counterTwo = 0;
     lock = new ReentrantLock();
+    lockTwo = new ReentrantLock();
   }
 
-  public synchronized void incrementCount()
+  public void incrementCounter()
   {
     //counter++;
     synchronized (lock)
@@ -23,8 +28,27 @@ public class Counter
     }
   }
 
+  public void incrementCounterTwo()
+  {
+    synchronized (lockTwo)
+    {
+      counterTwo++;
+    }
+  }
+
   public int getCounter()
   {
-    return counter;
+    synchronized (lock)
+    {
+      return counter;
+    }
+  }
+
+  public int getCounterTwo()
+  {
+    synchronized (lockTwo)
+    {
+      return counterTwo;
+    }
   }
 }

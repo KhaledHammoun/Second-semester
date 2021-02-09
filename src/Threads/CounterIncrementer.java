@@ -13,10 +13,16 @@ public class CounterIncrementer implements Runnable
   {
     for (int i = 0; i < 1000000; i++)
     {
-      counter.incrementCount();
+      counter.incrementCounter();
+    }
+
+    for (int i = 0; i < 1000000; i++)
+    {
+      counter.incrementCounterTwo();
     }
 
     int num = counter.getCounter();
     System.out.println(num);
+    System.out.println(counter.getCounterTwo());
   }
 }
