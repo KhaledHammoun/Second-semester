@@ -85,12 +85,8 @@ public class TemperatureViewController implements PropertyChangeListener
    @Override public void propertyChange(PropertyChangeEvent evt)
    {
 
-      Platform.runLater(new Runnable()
-      {
-         @Override public void run()
-         {
-            outputLabel.setText(evt.getNewValue().toString());
-         }
-      });
+      Platform.runLater(() ->
+          outputLabel.setText(evt.getNewValue().toString())
+      );
    }
 }
