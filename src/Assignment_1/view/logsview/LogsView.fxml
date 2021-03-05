@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="480.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment_1.view.logsview.LogsViewController">
+   <children>
+      <TableView fx:id="innerOneThermTable" layoutX="24.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="innerOneThermReadingColumn" editable="false" maxWidth="75.0" prefWidth="75.0" text="Reading" />
+          <TableColumn fx:id="innerOneThermTimeColumn" editable="false" maxWidth="123.0" prefWidth="133.33333587646484" text="TimeStamp" />
+        </columns>
+      </TableView>
+      <TableView fx:id="innerTwoThermTable" layoutX="273.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="innerTwoThermReadingColumn" editable="false" maxWidth="75.0" prefWidth="75.0" text="Reading" />
+          <TableColumn fx:id="innerTwoThermTimeColumn" editable="false" maxWidth="123.0" prefWidth="123.33334350585938" text="TimeStamp" />
+        </columns>
+      </TableView>
+      <TableView fx:id="outerThermTable" layoutX="164.0" layoutY="267.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="outerThermReadingColumn" editable="false" maxWidth="75.0" prefWidth="75.0" text="Reading" />
+          <TableColumn fx:id="outerThermTimeColumn" editable="false" maxWidth="123.0" prefWidth="123.33332824707031" text="TimeStamp" />
+        </columns>
+      </TableView>
+      <Label layoutX="54.0" layoutY="14.0" text="Inner thermometer (Close)" />
+      <Label layoutX="290.0" layoutY="14.0" text="Inner thermometer (Further)" />
+      <Label layoutX="212.0" layoutY="250.0" text="Outer thermometer" />
+   </children>
+</Pane>
