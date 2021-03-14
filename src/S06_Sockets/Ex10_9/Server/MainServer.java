@@ -26,12 +26,14 @@ public class MainServer
 
         while (true)
         {
-          String messageSend = scanner.nextLine();
-          out.println(messageSend);
+          //String messageSend = scanner.nextLine();
+          //out.println(messageSend);
           String messageReceived = in.readLine();
           System.out.println(messageReceived);
 
-          if (messageReceived.equalsIgnoreCase("bey") || messageSend.equalsIgnoreCase("bey"))
+          String messageSend = scanner.nextLine();
+          out.println(messageSend);
+          if (messageReceived.equalsIgnoreCase("bye") || messageSend.equalsIgnoreCase("bye"))
           {
             socket.close();
             break;

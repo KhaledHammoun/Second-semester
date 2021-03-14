@@ -11,33 +11,34 @@ public class MainClient
 {
   public static void main(String[] args) throws IOException
   {
+    Scanner scanner = new Scanner(System.in);
+
     Socket socket = new Socket("127.0.0.1", 6666);
     PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
     BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
     String message = in.readLine();
     System.out.println(message);
-    String operand = new Scanner(System.in).nextLine();
-    out.println(operand);
+
+    out.println(scanner.nextLine());
 
     while (true)
     {
-      message = in.readLine();
-      System.out.println(message);
-      String number = new Scanner(System.in).nextLine();
+      System.out.println(in.readLine());
+      String number = scanner.nextLine();
       out.println(number);
+
       if (number.equalsIgnoreCase("equals"))
       {
         break;
       }
-      else if (number.equalsIgnoreCase("stop"))
+      else if (number.equalsIgnoreCase("exit"))
       {
         System.out.println("Client closing..");
         return;
       }
     }
 
-    message = in.readLine();
-    System.out.println(message);
+    System.out.println(in.readLine());
   }
 }

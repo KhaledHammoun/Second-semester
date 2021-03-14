@@ -16,6 +16,9 @@ public class MainServer
     System.out.println("Server starting...");
     try (ServerSocket serverSocket = new ServerSocket(6666))
     {
+      List<Double> numbers = new ArrayList<>();
+      System.out.println("Server loading.. ");
+
       while (true)
       {
         Socket socket = serverSocket.accept();
@@ -24,9 +27,10 @@ public class MainServer
 
         out.println("Welcome to the calculator server. What operation do you want to perform?");
         String operand = in.readLine();
+
         out.println("You would like to " + operand + ". Give me number now:");
         String number = in.readLine();
-        List<Double> numbers = new ArrayList<>();
+
         while (true)
         {
           if (number.equalsIgnoreCase("equals"))
@@ -41,6 +45,7 @@ public class MainServer
           out.println("Give me another number:");
           number = in.readLine();
         }
+
         double result = 0;
         switch (operand)
         {
