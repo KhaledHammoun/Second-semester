@@ -1,6 +1,5 @@
-package Assignment_1;
+package S07_MVVM_Sockets.Ex12_3.client;
 
-import S07_MVVM_Sockets.Ex12_3.client.SummerHouseApp;
 import javafx.application.Application;
 
 public class StartSummerHouseApp
