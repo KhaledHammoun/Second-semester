@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Assignment_1/Assignment_1.iml" filepath="$PROJECT_DIR$/Assignment_1/Assignment_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Assignment_2/Assignment_2.iml" filepath="$PROJECT_DIR$/Assignment_2/Assignment_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/IdeaProjects.iml" filepath="$PROJECT_DIR$/IdeaProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S01_Threads/S01_Threads.iml" filepath="$PROJECT_DIR$/S01_Threads/S01_Threads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S02_ObserverPattern/S02_ObserverPattern.iml" filepath="$PROJECT_DIR$/S02_ObserverPattern/S02_ObserverPattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S03_MVVM/S03_MVVM.iml" filepath="$PROJECT_DIR$/S03_MVVM/S03_MVVM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S04_MVVM_Observer/S04_MVVM_Observer.iml" filepath="$PROJECT_DIR$/S04_MVVM_Observer/S04_MVVM_Observer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S05_StatePattern/S05_StatePattern.iml" filepath="$PROJECT_DIR$/S05_StatePattern/S05_StatePattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S06_Sockets/S06_Sockets.iml" filepath="$PROJECT_DIR$/S06_Sockets/S06_Sockets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S07_MVVM_Sockets/S07_MVVM_Sockets.iml" filepath="$PROJECT_DIR$/S07_MVVM_Sockets/S07_MVVM_Sockets.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,11 @@
+package Ex11_5.Client;
+
+import javafx.application.Application;
+
+public class RunApp
+{
+  public static void main(String[] args)
+  {
+    Application.launch(RunClient.class);
+  }
+}
