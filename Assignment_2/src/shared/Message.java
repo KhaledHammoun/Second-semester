@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class Message implements Serializable
 {
-  private String user;
+  private User user;
   private String message;
 
-  public Message(String user, String message)
+  public Message(User user, String message)
   {
     this.user = user;
     this.message = message;
   }
 
-  public String getUser()
+  public User getUser()
   {
     return user;
   }

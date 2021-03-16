@@ -16,7 +16,7 @@ public class SocketServer
   public SocketServer()
   {
     chatModel = new ChatModelManager();
-    this.connectionsPool = new Pool();
+    this.connectionsPool = new Pool(chatModel);
 
     try(ServerSocket serverSocket = new ServerSocket(9596))
     {

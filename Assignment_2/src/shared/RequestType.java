@@ -2,5 +2,5 @@ package shared;
 
 public enum RequestType
 {
-  LISTEN;
+  LISTEN, NEWMESSAGE;
 }
