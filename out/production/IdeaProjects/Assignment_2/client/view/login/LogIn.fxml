@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane prefHeight="274.0" prefWidth="284.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment_2.client.view.login.LogInController">
+   <children>
+      <Label layoutX="30.0" layoutY="134.0" text="Username: " />
+      <TextField fx:id="userNameTextField" layoutX="105.0" layoutY="130.0" />
+      <Label layoutX="13.0" layoutY="23.0" text="Welcome to WeChat">
+         <font>
+            <Font name="Baskerville Old Face" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="73.0" prefHeight="17.0" prefWidth="181.0" text="Please log in or create an account." />
+      <Button layoutX="207.0" layoutY="225.0" mnemonicParsing="false" onAction="#onLogInButton" text="Login" />
+      <Button layoutX="161.0" layoutY="225.0" mnemonicParsing="false" onAction="#onInfoButton" text="Info" />
+   </children>
+</Pane>

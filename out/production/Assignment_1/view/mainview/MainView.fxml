@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
+<Pane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.mainview.MainViewController">
+   <children>
+      <Label layoutX="30.0" layoutY="31.0" text="Outside temperature:" />
+      <Pane layoutX="191.0" layoutY="24.0" prefHeight="107.0" prefWidth="191.0" style="-fx-border-color: black;">
+         <children>
+            <Label layoutX="37.0" layoutY="6.0" text="Indoors temperature:" />
+            <Label fx:id="insideTempTwoLabel" layoutX="10.0" layoutY="75.0" text="Further from heater:" />
+            <Label fx:id="insideTempOneLabel" layoutX="10.0" layoutY="37.0" text="Close to heater:" />
+         </children>
+      </Pane>
+      <Circle fx:id="warningLight" fill="#ffffff00" layoutX="34.0" layoutY="138.0" radius="20.0" stroke="#ffffff00" strokeType="INSIDE" />
+      <Button layoutX="286.0" layoutY="158.0" mnemonicParsing="false" onAction="#onPowerSettingButton" prefHeight="25.0" prefWidth="97.0" text="Power Setting" />
+      <Label fx:id="warningLabel" layoutX="16.0" layoutY="149.0" prefHeight="34.0" prefWidth="141.0" wrapText="true" />
+      <Button layoutX="174.0" layoutY="158.0" mnemonicParsing="false" onAction="#onMeasuringLogsButton" text="Measuring logs" />
+      <Label fx:id="outsideTempLabel" layoutX="72.0" layoutY="60.0" />
+   </children>
+</Pane>
