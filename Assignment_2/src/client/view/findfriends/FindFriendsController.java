@@ -4,15 +4,19 @@ import client.core.ViewHandler;
 import client.view.login.LogInViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import shared.User;
+
+import java.util.Date;
 
 public class FindFriendsController
 {
-  @FXML private TableColumn lasActiveColumn;
-  @FXML private TableColumn usernameColumn;
-  @FXML private TableView friendsTable;
+  @FXML private TableColumn<User, String> registered;
+  @FXML private TableColumn<User, Date> usernameColumn;
+  @FXML private TableView<User> friendsTable;
   private FindFriendsViewModel findFriendsViewModel;
   private ViewHandler viewHandler;
 
@@ -20,6 +24,10 @@ public class FindFriendsController
   {
     this.findFriendsViewModel = findFriendsViewModel;
     this.viewHandler = viewHandler;
+    usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+    registered.setCellValueFactory(new PropertyValueFactory<>("registered"));
+
+    friendsTable.setItems(findFriendsViewModel.getUsers());
   }
 
   @FXML public void onBackButton(ActionEvent actionEvent)

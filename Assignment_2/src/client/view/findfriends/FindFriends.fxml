@@ -10,7 +10,7 @@
     <TableView fx:id="friendsTable" layoutX="34.0" layoutY="14.0" prefHeight="334.0" prefWidth="296.0">
         <columns>
             <TableColumn fx:id="usernameColumn" prefWidth="186.66662979125977" text="Username" />
-            <TableColumn fx:id="lasActiveColumn" prefWidth="107.99998474121094" text="Last active" />
+            <TableColumn fx:id="registered" prefWidth="107.99998474121094" text="Registered" />
         </columns>
     </TableView>
     <Button layoutX="268.0" layoutY="361.0" mnemonicParsing="false" onAction="#onAddFriendsButton" text="Add friend" />

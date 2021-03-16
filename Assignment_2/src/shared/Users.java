@@ -5,6 +5,7 @@ import shared.util.Status;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Users
 {
@@ -29,11 +30,6 @@ public class Users
     }
     addUser(user);
     return user;
-  }
-
-  public Status getStatus(User user)
-  {
-    return user.getStatus();
   }
 
   public void addFriend(User user, User friend)

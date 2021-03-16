@@ -1,26 +1,26 @@
 package shared;
 
-import shared.util.Status;
-
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class User implements Serializable
 {
-  private String userName;
-  private Status status;
+  private String username;
+  private Date registered;
   private List<User> friends;
 
   public User(String userName)
   {
-    this.userName = userName;
+    this.username = userName;
+    registered = new Date();
     friends = new ArrayList<>();
   }
 
-  public String getUserName()
+  public String getUsername()
   {
-    return userName;
+    return username;
   }
 
   public List<User> getFriends()
@@ -45,13 +45,8 @@ public class User implements Serializable
     }
   }
 
-  public void setStatus()
+  public Date getRegistered()
   {
-    // TODO: 16-03-2021 Set the status acording to logged in.
-  }
-
-  public Status getStatus()
-  {
-    return status;
+    return registered;
   }
 }
