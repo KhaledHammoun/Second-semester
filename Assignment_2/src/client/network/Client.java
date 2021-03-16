@@ -15,5 +15,5 @@ public interface Client extends PropertyChangeSubject
   void sendMessage(Message message);
   Users getAllUsers();
   List<User> getFriends();
-  Message receiveMessage(Message message);
+  void receiveMessage(Message message);
 }

@@ -2,6 +2,7 @@ package client.model;
 
 import client.network.Client;
 import shared.Message;
+import shared.RequestType;
 import shared.User;
 import shared.Users;
 
@@ -11,12 +12,14 @@ import java.util.List;
 
 public class ChatModelManager implements ChatModel
 {
+  private User currentUser;
   private Client client;
   private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
   public ChatModelManager(Client client)
   {
     this.client = client;
+    client.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), (x) -> receiveMessage((Message) x.getNewValue()));
   }
 
   @Override public void addUser(User user)
@@ -44,9 +47,19 @@ public class ChatModelManager implements ChatModel
     return null;
   }
 
-  @Override public Message receiveMessage(Message message)
+  @Override public void receiveMessage(Message message)
   {
-    return null;
+
+  }
+
+  @Override public void setCurrentUser(User user)
+  {
+    currentUser = user;
+  }
+
+  @Override public User getCurrentUser()
+  {
+    return currentUser;
   }
 
   @Override public void addPropertyChangeListener(String name,

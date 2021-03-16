@@ -22,4 +22,9 @@ public class Message implements Serializable
   {
     return message;
   }
+
+  public String toString()
+  {
+    return "From: " + user + "\n" + message;
+  }
 }

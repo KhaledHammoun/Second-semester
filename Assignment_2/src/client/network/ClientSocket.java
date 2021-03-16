@@ -80,9 +80,9 @@ public class ClientSocket implements Client
     return null;
   }
 
-  @Override public Message receiveMessage(Message message)
+  @Override public void receiveMessage(Message message)
   {
-    return message;
+    support.firePropertyChange(RequestType.NEWMESSAGE.toString(), null, message);
   }
 
   @Override public void addPropertyChangeListener(String name,

@@ -3,6 +3,7 @@ package client.view.login;
 import client.model.ChatModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.User;
 
 public class LogInViewModel
 {
@@ -17,8 +18,7 @@ public class LogInViewModel
 
   public void LogIn()
   {
-    System.out.println("LogIn viewModel");
-
+    chatModel.setCurrentUser(new User(username.getValue()));
   }
 
   public StringProperty usernameProperty()
