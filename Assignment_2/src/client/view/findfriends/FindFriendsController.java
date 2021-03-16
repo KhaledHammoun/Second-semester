@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import shared.User;
 
 public class FindFriendsController
 {
@@ -26,8 +27,9 @@ public class FindFriendsController
     viewHandler.startView("friends");
   }
 
-  @FXML public void onFindFriendsButton(ActionEvent actionEvent)
+  @FXML public void onAddFriendsButton(ActionEvent actionEvent)
   {
-    System.out.println("Someone added to friends");
+    User user = (User) friendsTable.getSelectionModel().getSelectedItem();
+    findFriendsViewModel.addFriend(user);
   }
 }

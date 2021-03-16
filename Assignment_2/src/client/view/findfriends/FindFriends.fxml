@@ -13,7 +13,7 @@
             <TableColumn fx:id="lasActiveColumn" prefWidth="107.99998474121094" text="Last active" />
         </columns>
     </TableView>
-    <Button layoutX="268.0" layoutY="361.0" mnemonicParsing="false" onAction="#onFindFriendsButton" text="Add friend" />
+    <Button layoutX="268.0" layoutY="361.0" mnemonicParsing="false" onAction="#onAddFriendsButton" text="Add friend" />
     <Button layoutX="215.0" layoutY="361.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
 </children>
 </Pane>
