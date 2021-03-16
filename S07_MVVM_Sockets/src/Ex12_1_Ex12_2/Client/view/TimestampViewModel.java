@@ -1,7 +1,8 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.view;
+package Ex12_1_Ex12_2.Client.view;
 
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.model.DataModel;
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.shared.util.PropertyChangeSubject;
+
+import Ex12_1_Ex12_2.Client.model.DataModel;
+import Ex12_1_Ex12_2.shared.util.PropertyChangeSubject;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

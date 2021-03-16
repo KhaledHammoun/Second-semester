@@ -1,10 +1,10 @@
 package Ex12_3.shared;
 
 
-import Ex12_3.core.ModelFactory;
+import Ex12_3.client.core.ModelFactory;
 
-import Ex12_3.mediator.HeaterModel;
-import S07_MVVM_Sockets.Ex12_3.shared.util.PropertyChangeSubject;
+import Ex12_3.client.mediator.HeaterModel;
+import Ex12_3.shared.util.PropertyChangeSubject;
 
 import java.beans.PropertyChangeEvent;
 import java.util.Random;

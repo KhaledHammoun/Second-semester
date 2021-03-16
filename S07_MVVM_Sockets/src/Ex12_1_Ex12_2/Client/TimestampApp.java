@@ -1,9 +1,10 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Client;
+package Ex12_1_Ex12_2.Client;
 
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.core.ClientFactory;
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.core.ModelFactory;
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.core.ViewHandler;
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.core.ViewModelFactory;
+
+import Ex12_1_Ex12_2.Client.core.ClientFactory;
+import Ex12_1_Ex12_2.Client.core.ModelFactory;
+import Ex12_1_Ex12_2.Client.core.ViewHandler;
+import Ex12_1_Ex12_2.Client.core.ViewModelFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

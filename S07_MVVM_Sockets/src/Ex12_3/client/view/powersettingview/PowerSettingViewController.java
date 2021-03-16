@@ -1,7 +1,7 @@
-package Ex12_3.view.powersettingview;
+package Ex12_3.client.view.powersettingview;
 
 
-import Ex12_3.core.ViewHandler;
+import Ex12_3.client.core.ViewHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

@@ -1,7 +1,7 @@
-package Ex12_3.core;
+package Ex12_3.client.core;
 
-import Ex12_3.network.Client;
-import Ex12_3.network.ClientSocket;
+import Ex12_3.client.network.Client;
+import Ex12_3.client.network.ClientSocket;
 
 public class ClientFactory
 {

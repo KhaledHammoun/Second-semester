@@ -1,7 +1,7 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Server;
+package Ex12_1_Ex12_2.Server;
 
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Server.model.DataModelManager;
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Server.network.SocketServer;
+import Ex12_1_Ex12_2.Server.model.DataModelManager;
+import Ex12_1_Ex12_2.Server.network.SocketServer;
 
 public class RunServer
 {

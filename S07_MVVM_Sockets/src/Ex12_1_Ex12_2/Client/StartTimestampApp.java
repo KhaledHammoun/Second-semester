@@ -1,4 +1,4 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Client;
+package Ex12_1_Ex12_2.Client;
 
 import javafx.application.Application;
 

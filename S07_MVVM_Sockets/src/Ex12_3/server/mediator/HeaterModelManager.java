@@ -1,8 +1,9 @@
 package Ex12_3.server.mediator;
 
 
-import S07_MVVM_Sockets.Ex12_3.server.model.Radiator;
-import S07_MVVM_Sockets.Ex12_3.shared.Temperature;
+
+import Ex12_3.server.model.Radiator;
+import Ex12_3.shared.Temperature;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

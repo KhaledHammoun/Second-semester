@@ -1,11 +1,12 @@
-package Ex12_3;
+package Ex12_3.client;
 
 
-import Ex12_3.core.ModelFactory;
-import Ex12_3.core.ViewHandler;
-import Ex12_3.core.ViewModelFactory;
-import S07_MVVM_Sockets.Ex12_3.shared.Temperature;
-import S07_MVVM_Sockets.Ex12_3.shared.Thermometer;
+import Ex12_3.client.core.ClientFactory;
+import Ex12_3.client.core.ModelFactory;
+import Ex12_3.client.core.ViewHandler;
+import Ex12_3.client.core.ViewModelFactory;
+import Ex12_3.shared.Temperature;
+import Ex12_3.shared.Thermometer;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -16,7 +17,8 @@ public class SummerHouseApp extends Application
 
   @Override public void start(Stage stage) throws Exception
   {
-    ModelFactory modelFactory = new ModelFactory();
+    ClientFactory clientFactory = new ClientFactory();
+    ModelFactory modelFactory = new ModelFactory(clientFactory);
     ViewModelFactory viewModelFactory = new ViewModelFactory(modelFactory);
     ViewHandler viewHandler = new ViewHandler(stage, viewModelFactory);
     viewHandler.start("main");

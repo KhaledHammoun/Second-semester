@@ -16,9 +16,11 @@ public class LogInController
   {
     this.logInViewModel = logInViewModel;
     this.viewHandler = viewHandler;
+    userNameTextField.textProperty().bindBidirectional(
+        logInViewModel.usernameProperty());
   }
 
-  @FXML public void onLogInButton(ActionEvent actionEvent)
+  @FXML public void onLogInButton()
   {
     logInViewModel.LogIn();
     viewHandler.startView("chat");

@@ -2,10 +2,13 @@ package shared;
 
 import shared.util.Status;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 public class Users
 {
+  private PropertyChangeSupport support = new PropertyChangeSupport(this);
   private ArrayList<User> users;
 
   public Users()
@@ -31,5 +34,10 @@ public class Users
   public Status getStatus(User user)
   {
     return user.getStatus();
+  }
+
+  public void addFriend(User user, User friend)
+  {
+    user.addFriend(friend);
   }
 }

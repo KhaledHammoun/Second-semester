@@ -1,7 +1,5 @@
 package Ex12_3.server.model;
 
-
-
 public class OffState implements RadiatorState
 {
   private final int POWER = 0;

@@ -1,10 +1,11 @@
-/*package Ex12_3.mediator;
+package Ex12_3.client.mediator;
 
 
 
-import Ex12_3.network.Client;
-import S07_MVVM_Sockets.Ex12_3.server.model.Radiator;
-import S07_MVVM_Sockets.Ex12_3.shared.Temperature;
+import Ex12_3.client.network.Client;
+import Ex12_3.server.model.OffState;
+import Ex12_3.server.model.Radiator;
+import Ex12_3.shared.Temperature;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -14,6 +15,11 @@ public class HeaterModelManager implements HeaterModel
 
   private PropertyChangeSupport support = new PropertyChangeSupport(this);
   private Client client;
+  private Temperature maxTemperature;
+  private Temperature minTemperature;
+  private String warningColourOld;
+  private String warningTextOld;
+  private Radiator radiator;
 
   public HeaterModelManager(Client client)
   {
@@ -90,4 +96,3 @@ public class HeaterModelManager implements HeaterModel
       support.removePropertyChangeListener(listener);
   }
 }
-*/

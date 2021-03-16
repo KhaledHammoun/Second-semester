@@ -1,8 +1,8 @@
-package Ex12_3.view.powersettingview;
+package Ex12_3.client.view.powersettingview;
 
 
-import Ex12_3.mediator.HeaterModel;
-import S07_MVVM_Sockets.Ex12_3.shared.util.PropertyChangeSubject;
+import Ex12_3.client.mediator.HeaterModel;
+import Ex12_3.shared.util.PropertyChangeSubject;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

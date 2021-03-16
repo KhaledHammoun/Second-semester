@@ -1,8 +1,8 @@
-package Ex12_3.core;
+package Ex12_3.client.core;
 
-import Ex12_3.view.logsview.LogsViewModel;
-import Ex12_3.view.mainview.MainViewModel;
-import Ex12_3.view.powersettingview.PowerSettingViewModel;
+import Ex12_3.client.view.logsview.LogsViewModel;
+import Ex12_3.client.view.mainview.MainViewModel;
+import Ex12_3.client.view.powersettingview.PowerSettingViewModel;
 
 public class ViewModelFactory
 {

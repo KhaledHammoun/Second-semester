@@ -1,6 +1,6 @@
 package Ex12_3.server.network;
 
-import S07_MVVM_Sockets.Ex12_3.server.mediator.HeaterModel;
+import Ex12_3.server.mediator.HeaterModel;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

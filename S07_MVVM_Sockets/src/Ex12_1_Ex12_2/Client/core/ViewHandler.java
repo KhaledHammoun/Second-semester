@@ -1,6 +1,7 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.core;
+package Ex12_1_Ex12_2.Client.core;
 
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.view.TimestampController;
+
+import Ex12_1_Ex12_2.Client.view.TimestampController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

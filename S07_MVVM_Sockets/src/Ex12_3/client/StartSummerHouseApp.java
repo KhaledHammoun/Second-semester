@@ -1,4 +1,4 @@
-package Ex12_3;
+package Ex12_3.client;
 
 import javafx.application.Application;
 

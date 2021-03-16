@@ -1,7 +1,7 @@
-package Ex12_3.core;
+package Ex12_3.client.core;
 
-import Ex12_3.mediator.HeaterModel;
-import Ex12_3.mediator.HeaterModelManager;
+import Ex12_3.client.mediator.HeaterModel;
+import Ex12_3.client.mediator.HeaterModelManager;
 
 public class ModelFactory
 {

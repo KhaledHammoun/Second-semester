@@ -1,8 +1,8 @@
-package Ex12_3.view.logsview;
+package Ex12_3.client.view.logsview;
 
 
 
-import S07_MVVM_Sockets.Ex12_3.shared.Temperature;
+import Ex12_3.shared.Temperature;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;

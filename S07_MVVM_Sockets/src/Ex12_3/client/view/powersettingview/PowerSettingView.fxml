@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ex12_3.view.powersettingview.PowerSettingViewController">
+<Pane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ex12_3.client.view.powersettingview.PowerSettingViewController">
    <children>
       <Button layoutX="35.0" layoutY="55.0" mnemonicParsing="false" onAction="#onIncreaseButton" prefHeight="25.0" prefWidth="110.0" text="Increase heating" />
       <Button layoutX="34.0" layoutY="93.0" mnemonicParsing="false" onAction="#onDecreaseButton" prefHeight="25.0" prefWidth="110.0" text="Decrease heating" />

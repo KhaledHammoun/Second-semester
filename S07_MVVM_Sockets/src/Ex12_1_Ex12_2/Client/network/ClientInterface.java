@@ -1,6 +1,8 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.network;
+package Ex12_1_Ex12_2.Client.network;
 
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.shared.util.PropertyChangeSubject;
+
+
+import Ex12_1_Ex12_2.shared.util.PropertyChangeSubject;
 
 import java.util.Date;
 

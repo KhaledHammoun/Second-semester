@@ -1,7 +1,9 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Server.network;
+package Ex12_1_Ex12_2.Server.network;
 
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Server.model.DataModel;
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.shared.Request;
+
+
+import Ex12_1_Ex12_2.Server.model.DataModel;
+import Ex12_1_Ex12_2.shared.Request;
 
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;

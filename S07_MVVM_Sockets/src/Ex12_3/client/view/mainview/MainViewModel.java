@@ -1,9 +1,9 @@
-package Ex12_3.view.mainview;
+package Ex12_3.client.view.mainview;
 
 
-import Ex12_3.mediator.HeaterModel;
-import S07_MVVM_Sockets.Ex12_3.shared.Temperature;
-import S07_MVVM_Sockets.Ex12_3.shared.util.PropertyChangeSubject;
+import Ex12_3.client.mediator.HeaterModel;
+import Ex12_3.shared.Temperature;
+import Ex12_3.shared.util.PropertyChangeSubject;
 import javafx.application.Platform;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;

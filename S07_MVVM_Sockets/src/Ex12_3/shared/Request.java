@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class Request implements Serializable
 {
-  private requestType requestType;
+  private RequestType requestType;
   private Object arg;
 
-  public Request(S07_MVVM_Sockets.Ex12_3.shared.requestType requestType,
+  public Request(RequestType requestType,
       Object arg)
   {
     this.requestType = requestType;
     this.arg = arg;
   }
 
-  public requestType getRequestType()
+  public RequestType getRequestType()
   {
     return requestType;
   }

@@ -37,6 +37,14 @@ public class User implements Serializable
     return null;
   }
 
+  public void addFriend(User user)
+  {
+    if (!(friends.contains(user)))
+    {
+      friends.add(user);
+    }
+  }
+
   public void setStatus()
   {
     // TODO: 16-03-2021 Set the status acording to logged in.

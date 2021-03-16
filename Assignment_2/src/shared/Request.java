@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class Request implements Serializable
 {
-  private requestType request;
+  private RequestType request;
   private Object argument;
 
-  public Request(requestType request, Object argument)
+  public Request(RequestType request, Object argument)
   {
     this.request = request;
     this.argument = argument;
   }
 
-  public requestType getRequest()
+  public RequestType getRequest()
   {
     return request;
   }

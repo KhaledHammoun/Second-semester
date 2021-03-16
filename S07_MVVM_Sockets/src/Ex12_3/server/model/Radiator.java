@@ -1,6 +1,5 @@
 package Ex12_3.server.model;
 
-
 import java.beans.PropertyChangeSupport;
 
 public class Radiator

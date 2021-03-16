@@ -1,7 +1,8 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.core;
+package Ex12_1_Ex12_2.Client.core;
 
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.model.DataModel;
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.model.DataModelManager;
+
+import Ex12_1_Ex12_2.Client.model.DataModel;
+import Ex12_1_Ex12_2.Client.model.DataModelManager;
 
 import java.io.IOException;
 

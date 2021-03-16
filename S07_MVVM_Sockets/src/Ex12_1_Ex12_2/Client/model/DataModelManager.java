@@ -1,7 +1,9 @@
-package S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.model;
+package Ex12_1_Ex12_2.Client.model;
 
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.Client.network.ClientInterface;
-import S07_MVVM_Sockets.Ex12_1_Ex12_2.shared.util.PropertyChangeSubject;
+
+
+import Ex12_1_Ex12_2.Client.network.ClientInterface;
+import Ex12_1_Ex12_2.shared.util.PropertyChangeSubject;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;

@@ -1,7 +1,7 @@
-package Ex12_3.network;
+package Ex12_3.client.network;
 
-import S07_MVVM_Sockets.Ex12_3.shared.Temperature;
-import S07_MVVM_Sockets.Ex12_3.shared.util.PropertyChangeSubject;
+import Ex12_3.shared.Temperature;
+import Ex12_3.shared.util.PropertyChangeSubject;
 
 public interface Client extends PropertyChangeSubject
 {

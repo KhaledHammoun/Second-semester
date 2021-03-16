@@ -1,8 +1,8 @@
-package Ex12_3.view.logsview;
+package Ex12_3.client.view.logsview;
 
-import Ex12_3.mediator.HeaterModel;
-import S07_MVVM_Sockets.Ex12_3.shared.Temperature;
-import S07_MVVM_Sockets.Ex12_3.shared.util.PropertyChangeSubject;
+import Ex12_3.client.mediator.HeaterModel;
+import Ex12_3.shared.Temperature;
+import Ex12_3.shared.util.PropertyChangeSubject;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

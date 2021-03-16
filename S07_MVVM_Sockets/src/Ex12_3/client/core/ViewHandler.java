@@ -1,9 +1,9 @@
-package Ex12_3.core;
+package Ex12_3.client.core;
 
 
-import Ex12_3.view.logsview.LogsViewController;
-import Ex12_3.view.mainview.MainViewController;
-import Ex12_3.view.powersettingview.PowerSettingViewController;
+import Ex12_3.client.view.logsview.LogsViewController;
+import Ex12_3.client.view.mainview.MainViewController;
+import Ex12_3.client.view.powersettingview.PowerSettingViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
