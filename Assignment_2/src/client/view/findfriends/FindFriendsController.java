@@ -4,6 +4,7 @@ import client.core.ViewHandler;
 import client.view.login.LogInViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -38,6 +39,16 @@ public class FindFriendsController
   @FXML public void onAddFriendsButton(ActionEvent actionEvent)
   {
     User user = (User) friendsTable.getSelectionModel().getSelectedItem();
-    findFriendsViewModel.addFriend(user);
+    if (user != null)
+    {
+      findFriendsViewModel.addFriend(user);
+    }
+    else
+    {
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setHeaderText("No user selected");
+      alert.setContentText("Please select a user from the list in order to add as a friend.");
+      alert.show();
+    }
   }
 }

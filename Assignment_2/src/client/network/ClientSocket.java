@@ -62,7 +62,18 @@ public class ClientSocket implements Client
 
   @Override public void addFriend(User user, User friend)
   {
-
+    try
+    {
+      Socket socket = new Socket("127.0.0.1", 9596);
+      ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+      User[] friendToAdd = {user, friend};
+      outToServer.writeUnshared(new Request(RequestType.ADDFRIEND, friendToAdd));
+    }
+    catch (IOException e)
+    {
+      System.out.println("Error while sending request to the server for adding a friend");
+    }
   }
 
   @Override public void sendMessage(Message message)

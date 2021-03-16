@@ -27,9 +27,9 @@ public class ChatModelManager implements ChatModel
 
   }
 
-  @Override public void addFriend(User user, User friend)
+  @Override public void addFriend(User friend)
   {
-
+    client.addFriend(currentUser, friend);
   }
 
   @Override public void sendMessage(Message message)

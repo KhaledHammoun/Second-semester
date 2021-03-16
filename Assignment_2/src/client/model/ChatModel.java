@@ -10,7 +10,7 @@ import java.util.List;
 public interface ChatModel extends PropertyChangeSubject
 {
   void addUser(User user);
-  void addFriend(User user, User friend);
+  void addFriend(User friend);
   void sendMessage(Message message);
   Users getAllUsers();
   List<User> getFriends();

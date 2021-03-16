@@ -34,5 +34,6 @@ public class FindFriendsViewModel
   public void addFriend(User user)
   {
     System.out.println("Hello from VW(Add friend)");
+    chatModel.addFriend(user);
   }
 }

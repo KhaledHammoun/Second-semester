@@ -2,5 +2,5 @@ package shared;
 
 public enum RequestType
 {
-  LISTEN, NEWMESSAGE, NEWUSER;
+  LISTEN, NEWMESSAGE, NEWUSER, ADDFRIEND;
 }

@@ -40,6 +40,11 @@ public class ServerSocketHandler implements Runnable
       {
         chatModel.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), this::message);
       }
+      else if (request.getRequest().equals(RequestType.ADDFRIEND))
+      {
+        User[] users = (User[]) request.getArgument();
+        chatModel.addFriend(users[0], users[1]);
+      }
       // TODO: 16-03-2021 Add the rest of the checks
     }
     catch (IOException | ClassNotFoundException e)
