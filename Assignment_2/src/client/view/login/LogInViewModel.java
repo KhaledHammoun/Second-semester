@@ -18,7 +18,9 @@ public class LogInViewModel
 
   public void LogIn()
   {
-    chatModel.setCurrentUser(new User(username.getValue()));
+    User user = new User(username.getValue());
+    chatModel.addUser(user);
+    chatModel.setCurrentUser(user);
   }
 
   public StringProperty usernameProperty()

@@ -13,7 +13,7 @@ public interface Client extends PropertyChangeSubject
   void addUser(User user);
   void addFriend(User user, User friend);
   void sendMessage(Message message);
-  Users getAllUsers();
-  List<User> getFriends();
+  void getUsers();
+  void getFriends();
   void receiveMessage(Message message);
 }

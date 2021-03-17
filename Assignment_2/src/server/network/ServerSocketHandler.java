@@ -1,10 +1,7 @@
 package server.network;
 
 import server.model.ChatModel;
-import shared.Message;
-import shared.Request;
-import shared.RequestType;
-import shared.User;
+import shared.*;
 
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
@@ -45,7 +42,23 @@ public class ServerSocketHandler implements Runnable
         User[] users = (User[]) request.getArgument();
         chatModel.addFriend(users[0], users[1]);
       }
-      // TODO: 16-03-2021 Add the rest of the checks
+      else if (request.getRequest().equals(RequestType.NEWFRIEND))
+      {
+        chatModel.addPropertyChangeListener(RequestType.NEWFRIEND.toString(), this::newFriendAdded);
+      }
+      else if (request.getRequest().equals(RequestType.NEWUSER))
+      {
+        chatModel.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::newUserAdded);
+      }
+      else if(request.getRequest().equals(RequestType.ADDUSER))
+      {
+        chatModel.addUser((User) request.getArgument());
+      }
+      else if (request.getRequest().equals(RequestType.SENDMESSAGE))
+      {
+        Message message = (Message) request.getArgument();
+        connections.broadcastMessage(message);
+      }
     }
     catch (IOException | ClassNotFoundException e)
     {
@@ -53,9 +66,45 @@ public class ServerSocketHandler implements Runnable
     }
   }
 
+  private void newUserAdded(PropertyChangeEvent event)
+  {
+    try
+    {
+      outToClient.writeUnshared(new Request(RequestType.NEWUSER, event.getNewValue()));
+    }
+    catch (IOException e)
+    {
+      System.out.println("Error while fetching data from server.");
+    }
+  }
+
+  private void newFriendAdded(PropertyChangeEvent event)
+  {
+    try
+    {
+      outToClient.writeUnshared(event.getNewValue());
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   private void message(PropertyChangeEvent event)
   {
     Message message = new Message((User) event.getOldValue(), (String) event.getNewValue());
     connections.broadcastMessage(message);
+  }
+
+  public void sendMessage(Message message)
+  {
+    try
+    {
+      outToClient.writeUnshared(new Request(RequestType.LISTEN,message));
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
   }
 }

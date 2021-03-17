@@ -25,11 +25,9 @@ public class Pool
 
   public void broadcastMessage(Message message)
   {
-    List<User> friends = message.getUser().getFriends();
-
-    for (User friend : friends)
+    for (ServerSocketHandler connection : connections)
     {
-      // TODO: 16-03-2021 Call the method from the chat model
+      connection.sendMessage(message);
     }
   }
 }

@@ -19,7 +19,10 @@ public class Users
 
   public void addUser(User user)
   {
-    users.add(user);
+    if (!(users.contains(user)))
+    {
+      users.add(user);
+    }
   }
 
   public User getUser(User user)

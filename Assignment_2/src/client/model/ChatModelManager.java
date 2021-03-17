@@ -6,9 +6,11 @@ import shared.RequestType;
 import shared.User;
 import shared.Users;
 
+import java.util.List;
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.List;
+import java.util.ArrayList;
 
 public class ChatModelManager implements ChatModel
 {
@@ -19,12 +21,20 @@ public class ChatModelManager implements ChatModel
   public ChatModelManager(Client client)
   {
     this.client = client;
-    client.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), (x) -> receiveMessage((Message) x.getNewValue()));
+    client.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), this::receiveMessage);
+    client.addPropertyChangeListener(RequestType.NEWFRIEND.toString(), this::getFriends);
+    client.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::newUsersAdded);
+  }
+
+  private void newUsersAdded(PropertyChangeEvent event)
+  {
+    User user = (User) event.getNewValue();
+    support.firePropertyChange(RequestType.NEWUSER.toString(), null, user);
   }
 
   @Override public void addUser(User user)
   {
-
+    client.addUser(user);
   }
 
   @Override public void addFriend(User friend)
@@ -34,22 +44,17 @@ public class ChatModelManager implements ChatModel
 
   @Override public void sendMessage(Message message)
   {
-
+    client.sendMessage(message);
   }
 
-  @Override public Users getAllUsers()
+  @Override public void getFriends(PropertyChangeEvent event)
   {
-    return null;
+    support.firePropertyChange(event);
   }
 
-  @Override public List<User> getFriends()
+  @Override public void receiveMessage(PropertyChangeEvent event)
   {
-    return null;
-  }
-
-  @Override public void receiveMessage(Message message)
-  {
-
+    support.firePropertyChange(event);
   }
 
   @Override public void setCurrentUser(User user)

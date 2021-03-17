@@ -22,27 +22,22 @@ public class ClientSocket implements Client
 
   @Override public void startClient()
   {
-    try
-    {
-      Socket socket = new Socket("127.0.0.1", 9596);
-      ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
-      ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
-
-      new Thread(() -> listenForMessage(outToServer, inFromServer)).start();
-    }
-    catch (IOException e)
-    {
-      System.out.println(
-          "Failed to initiate the socket communication with Server in Client socket");
-    }
+    new Thread(this::listenForMessage).start();
+    new Thread(this::getUsers).start();
+    new Thread(this::getFriends).start();
   }
 
-  private void listenForMessage(ObjectOutputStream ouToServer,
-      ObjectInputStream inFromServer)
+  private void listenForMessage()
   {
     try
     {
-      ouToServer.writeUnshared(new Request(RequestType.LISTEN, null));
+      Socket socket = new Socket("127.0.0.1", 9596);
+      ObjectOutputStream outToServer = new ObjectOutputStream(
+          socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(
+          socket.getInputStream());
+
+      outToServer.writeUnshared(new Request(RequestType.LISTEN, null));
       while (true)
       {
         Request request = (Request) inFromServer.readUnshared();
@@ -57,6 +52,22 @@ public class ClientSocket implements Client
 
   @Override public void addUser(User user)
   {
+    try
+    {
+      Socket socket = new Socket("127.0.0.1", 9596);
+      ObjectOutputStream outToServer = new ObjectOutputStream(
+          socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(
+          socket.getInputStream());
+
+      outToServer.writeUnshared(new Request(RequestType.ADDUSER, user));
+    }
+    catch (IOException e)
+
+    {
+      System.out.println(
+          "Error while sending request to the server for adding a friend");
+    }
 
   }
 
@@ -65,46 +76,118 @@ public class ClientSocket implements Client
     try
     {
       Socket socket = new Socket("127.0.0.1", 9596);
-      ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
-      ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+      ObjectOutputStream outToServer = new ObjectOutputStream(
+          socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(
+          socket.getInputStream());
       User[] friendToAdd = {user, friend};
-      outToServer.writeUnshared(new Request(RequestType.ADDFRIEND, friendToAdd));
+      outToServer
+          .writeUnshared(new Request(RequestType.ADDFRIEND, friendToAdd));
     }
     catch (IOException e)
     {
-      System.out.println("Error while sending request to the server for adding a friend");
+      System.out.println(
+          "Error while sending request to the server for adding a friend");
     }
   }
 
   @Override public void sendMessage(Message message)
   {
+    try
+    {
+      Socket socket = new Socket("127.0.0.1", 9596);
+      ObjectOutputStream outToServer = new ObjectOutputStream(
+          socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(
+          socket.getInputStream());
 
+      outToServer.writeUnshared(new Request(RequestType.SENDMESSAGE, message));
+    }
+    catch (IOException e)
+    {
+      System.out.println("Error while sending the message to the server");
+    }
   }
 
-  @Override public Users getAllUsers()
+  @Override public void getUsers()
   {
-    return null;
+    try
+    {
+      Socket socket = new Socket("127.0.0.1", 9596);
+      ObjectOutputStream outToServer = new ObjectOutputStream(
+          socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(
+          socket.getInputStream());
+
+      outToServer.writeUnshared(new Request(RequestType.NEWUSER, null));
+
+      while (true)
+      {
+        User user = (User) inFromServer.readUnshared();
+        support.firePropertyChange(RequestType.NEWUSER.toString(), null, user);
+      }
+    }
+    catch (IOException | ClassNotFoundException e)
+    {
+      System.out.println("Error while getting all the users form the server");
+    }
   }
 
-  @Override public List<User> getFriends()
+  @Override public void getFriends()
   {
-    return null;
+    try
+    {
+      Socket socket = new Socket("127.0.0.1", 9596);
+      ObjectOutputStream ouToServer = new ObjectOutputStream(
+          socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(
+          socket.getInputStream());
+
+      ouToServer.writeUnshared(new Request(RequestType.NEWFRIEND, null));
+      while (true)
+      {
+        User friend = (User) inFromServer.readUnshared();
+
+        support
+            .firePropertyChange(RequestType.NEWFRIEND.toString(), null, friend);
+      }
+    }
+    catch (IOException | ClassNotFoundException e)
+    {
+      e.printStackTrace();
+    }
+
   }
 
   @Override public void receiveMessage(Message message)
   {
-    support.firePropertyChange(RequestType.NEWMESSAGE.toString(), null, message);
+    support
+        .firePropertyChange(RequestType.NEWMESSAGE.toString(), null, message);
   }
 
   @Override public void addPropertyChangeListener(String name,
       PropertyChangeListener listener)
   {
-
+    if (name == null)
+    {
+      support.addPropertyChangeListener(listener);
+    }
+    else
+    {
+      support.addPropertyChangeListener(name, listener);
+    }
   }
 
   @Override public void removePropertyChangeListener(String name,
       PropertyChangeListener listener)
   {
-
+    if (name == null)
+    {
+      support.removePropertyChangeListener(listener);
+    }
+    else
+    {
+      support.removePropertyChangeListener(name, listener);
+    }
   }
 }

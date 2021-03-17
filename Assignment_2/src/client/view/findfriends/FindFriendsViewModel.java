@@ -16,7 +16,7 @@ public class FindFriendsViewModel
   public FindFriendsViewModel(ChatModel chatModel)
   {
     this.chatModel = chatModel;
-    users = FXCollections.observableArrayList(new User("taka"), new User("onq"));
+    users = FXCollections.observableArrayList();
     chatModel.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::addUser);
   }
 
@@ -33,7 +33,6 @@ public class FindFriendsViewModel
 
   public void addFriend(User user)
   {
-    System.out.println("Hello from VW(Add friend)");
     chatModel.addFriend(user);
   }
 }

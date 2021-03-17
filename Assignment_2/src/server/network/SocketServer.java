@@ -17,14 +17,21 @@ public class SocketServer
   {
     chatModel = new ChatModelManager();
     this.connectionsPool = new Pool(chatModel);
+  }
 
+  public void startServer()
+  {
     try(ServerSocket serverSocket = new ServerSocket(9596))
     {
-      Socket socket = serverSocket.accept();
-      ServerSocketHandler serverSocketHandler = new ServerSocketHandler(socket, chatModel, connectionsPool);
-      connectionsPool.addConnection(serverSocketHandler);
+      System.out.println("Server running");
+      while (true)
+      {
+        Socket socket = serverSocket.accept();
+        ServerSocketHandler serverSocketHandler = new ServerSocketHandler(socket, chatModel, connectionsPool);
+        connectionsPool.addConnection(serverSocketHandler);
 
-      new Thread(serverSocketHandler).start();
+        new Thread(serverSocketHandler).start();
+      }
     }
     catch (IOException e)
     {
