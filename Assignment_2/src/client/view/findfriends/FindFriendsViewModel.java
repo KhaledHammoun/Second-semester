@@ -23,6 +23,7 @@ public class FindFriendsViewModel
   private void addUser(PropertyChangeEvent event)
   {
     User user = (User) event.getNewValue();
+    System.out.println(user.getUsername());
     users.add(user);
   }
 

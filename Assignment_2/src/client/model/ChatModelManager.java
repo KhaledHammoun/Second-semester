@@ -21,6 +21,7 @@ public class ChatModelManager implements ChatModel
   public ChatModelManager(Client client)
   {
     this.client = client;
+    client.startClient();
     client.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), this::receiveMessage);
     client.addPropertyChangeListener(RequestType.NEWFRIEND.toString(), this::getFriends);
     client.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::newUsersAdded);

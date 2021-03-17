@@ -18,7 +18,39 @@ public class ChatModelManager implements ChatModel
   {
     users = new Users();
   }
-  // TODO: 16-03-2021 Method sendMessage that will fire a property with message send.
+
+  @Override public void addUser(User user)
+  {
+    users.addUser(user);
+    support.firePropertyChange(RequestType.NEWUSER.toString(), null, user);
+  }
+
+  @Override public void addFriend(User user, User friend)
+  {
+    users.addFriend(user, friend);
+    support.firePropertyChange(RequestType.NEWFRIEND.toString(), user,friend);
+  }
+
+  @Override public void sendMessage(Message message)
+  {
+    support.firePropertyChange(RequestType.NEWMESSAGE.toString(), null, message);
+  }
+
+  @Override public Users getAllUsers()
+  {
+    return users;
+  }
+
+  @Override public List<User> getFriends(User currentUser)
+  {
+    return users.getUser(currentUser).getFriends();
+  }
+
+  @Override public void receiveMessage(Message message)
+  {
+
+  }
+
   @Override public void addPropertyChangeListener(String name,
       PropertyChangeListener listener)
   {
@@ -43,38 +75,5 @@ public class ChatModelManager implements ChatModel
     {
       support.removePropertyChangeListener(name, listener);
     }
-  }
-
-  @Override public void addUser(User user)
-  {
-    users.addUser(user);
-    support.firePropertyChange(RequestType.NEWUSER.toString(), null, user);
-  }
-
-  @Override public void addFriend(User user, User friend)
-  {
-    users.addFriend(user, friend);
-    List<User> friends = getFriends(user);
-    support.firePropertyChange(RequestType.NEWFRIEND.toString(), user,friends);
-  }
-
-  @Override public void sendMessage(Message message)
-  {
-    support.firePropertyChange(RequestType.NEWMESSAGE.toString(), null, message);
-  }
-
-  @Override public Users getAllUsers()
-  {
-    return users;
-  }
-
-  @Override public List<User> getFriends(User currentUser)
-  {
-    return users.getUser(currentUser).getFriends();
-  }
-
-  @Override public void receiveMessage(Message message)
-  {
-
   }
 }

@@ -82,7 +82,8 @@ public class ServerSocketHandler implements Runnable
   {
     try
     {
-      outToClient.writeUnshared(event.getNewValue());
+      User friend = (User) event.getNewValue();
+      outToClient.writeUnshared(friend);
     }
     catch (IOException e)
     {

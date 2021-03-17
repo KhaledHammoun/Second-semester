@@ -13,7 +13,7 @@ public class LogInViewModel
   public LogInViewModel(ChatModel chatModel)
   {
     this.chatModel = chatModel;
-    username = new SimpleStringProperty("Name");
+    username = new SimpleStringProperty();
   }
 
   public void LogIn()

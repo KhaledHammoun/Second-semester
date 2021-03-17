@@ -3,6 +3,7 @@ package client.network;
 import shared.*;
 import shared.util.PropertyChangeSubject;
 
+import javax.sound.midi.Soundbank;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.IOException;
@@ -57,8 +58,6 @@ public class ClientSocket implements Client
       Socket socket = new Socket("127.0.0.1", 9596);
       ObjectOutputStream outToServer = new ObjectOutputStream(
           socket.getOutputStream());
-      ObjectInputStream inFromServer = new ObjectInputStream(
-          socket.getInputStream());
 
       outToServer.writeUnshared(new Request(RequestType.ADDUSER, user));
     }
@@ -123,8 +122,8 @@ public class ClientSocket implements Client
 
       while (true)
       {
-        User user = (User) inFromServer.readUnshared();
-        support.firePropertyChange(RequestType.NEWUSER.toString(), null, user);
+        Request request = (Request) inFromServer.readUnshared();
+        support.firePropertyChange(RequestType.NEWUSER.toString(), null, (User) request.getArgument());
       }
     }
     catch (IOException | ClassNotFoundException e)

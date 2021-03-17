@@ -17,6 +17,10 @@ public class ViewModelFactory
   public ViewModelFactory(ModelFactory modelFactory)
   {
     this.modelFactory = modelFactory;
+    this.logInViewModel = new LogInViewModel(modelFactory.getChatModel());
+    this.findFriendsViewModel = new FindFriendsViewModel(modelFactory.getChatModel());
+    this.chatViewModel = new ChatViewModel(modelFactory.getChatModel());
+    this.friendsViewModel = new FriendsViewModel(modelFactory.getChatModel());
   }
 
   public LogInViewModel getLogInViewModel()
