@@ -49,4 +49,9 @@ public class User implements Serializable
   {
     return registered;
   }
+
+  public String toString()
+  {
+    return username;
+  }
 }

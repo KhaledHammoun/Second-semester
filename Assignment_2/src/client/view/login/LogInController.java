@@ -36,4 +36,9 @@ public class LogInController
     info.setHeight(300);
     info.show();
   }
+
+  @FXML public void onEnterPressed(ActionEvent keyEvent)
+  {
+      onLogInButton();
+  }
 }

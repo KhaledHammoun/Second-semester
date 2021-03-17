@@ -1,6 +1,7 @@
 package shared;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Message implements Serializable
 {
@@ -25,6 +26,6 @@ public class Message implements Serializable
 
   public String toString()
   {
-    return "From: " + user + "\n" + message;
+    return "From: " + user + " - " + new Date() + "\n" + message;
   }
 }

@@ -36,19 +36,13 @@ public class ServerSocketHandler implements Runnable
       if (request.getRequest().equals(RequestType.LISTEN))
       {
         chatModel.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), this::message);
+        chatModel.addPropertyChangeListener(RequestType.NEWFRIEND.toString(), this::newFriendAdded);
+        chatModel.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::newUserAdded);
       }
       else if (request.getRequest().equals(RequestType.ADDFRIEND))
       {
         User[] users = (User[]) request.getArgument();
         chatModel.addFriend(users[0], users[1]);
-      }
-      else if (request.getRequest().equals(RequestType.NEWFRIEND))
-      {
-        chatModel.addPropertyChangeListener(RequestType.NEWFRIEND.toString(), this::newFriendAdded);
-      }
-      else if (request.getRequest().equals(RequestType.NEWUSER))
-      {
-        chatModel.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::newUserAdded);
       }
       else if(request.getRequest().equals(RequestType.ADDUSER))
       {
@@ -82,8 +76,7 @@ public class ServerSocketHandler implements Runnable
   {
     try
     {
-      User friend = (User) event.getNewValue();
-      outToClient.writeUnshared(friend);
+      outToClient.writeUnshared(new Request(RequestType.NEWFRIEND, event));
     }
     catch (IOException e)
     {
@@ -97,15 +90,15 @@ public class ServerSocketHandler implements Runnable
     connections.broadcastMessage(message);
   }
 
-  public void sendMessage(Message message)
+  public synchronized void sendMessage(Message message)
   {
     try
     {
-      outToClient.writeUnshared(new Request(RequestType.LISTEN,message));
+      outToClient.writeUnshared(new Request(RequestType.NEWMESSAGE,message));
     }
     catch (IOException e)
     {
-      e.printStackTrace();
+      System.out.println("Failed to send the message to client");
     }
   }
 }

@@ -50,7 +50,10 @@ public class ChatModelManager implements ChatModel
 
   @Override public void getFriends(PropertyChangeEvent event)
   {
-    support.firePropertyChange(event);
+    if (currentUser != null &&currentUser.getUsername().equals(((User) event.getOldValue()).getUsername()))
+    {
+      support.firePropertyChange(event);
+    }
   }
 
   @Override public void receiveMessage(PropertyChangeEvent event)

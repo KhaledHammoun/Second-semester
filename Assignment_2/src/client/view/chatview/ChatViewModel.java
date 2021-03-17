@@ -13,26 +13,28 @@ public class ChatViewModel
   private ChatModel chatModel;
   private StringProperty message;
   private StringProperty messageToSend;
+  private StringBuilder newMessage;
+
 
   public ChatViewModel(ChatModel chatModel)
   {
     this.chatModel = chatModel;
     message = new SimpleStringProperty();
     messageToSend = new SimpleStringProperty();
+    newMessage = new StringBuilder();
     chatModel.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(),
         (x) -> setMessage((Message) x.getNewValue()));
   }
 
   private void setMessage(Message message)
   {
-    String newMessage = this.message.getValue() + "\n\n" + message;
-    this.message.set(newMessage);
+    newMessage.append(message + "\n\n");
+    this.message.set(newMessage.toString());
   }
 
   public void sendMessage()
   {
     Message message = new Message(chatModel.getCurrentUser(), messageToSend.get());
-    setMessage(message);
     chatModel.sendMessage(message);
   }
 
@@ -44,5 +46,11 @@ public class ChatViewModel
   public StringProperty messageToSendProperty()
   {
     return messageToSend;
+  }
+
+  public void clear()
+  {
+    message.set("");
+    messageToSend.set("");
   }
 }

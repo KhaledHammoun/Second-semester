@@ -29,7 +29,7 @@ public class SocketServer
         Socket socket = serverSocket.accept();
         ServerSocketHandler serverSocketHandler = new ServerSocketHandler(socket, chatModel, connectionsPool);
         connectionsPool.addConnection(serverSocketHandler);
-
+        // TODO: 17-03-2021 I am adding too many connections to the pool. They are not al listening to the messages. Try to fix.
         new Thread(serverSocketHandler).start();
       }
     }

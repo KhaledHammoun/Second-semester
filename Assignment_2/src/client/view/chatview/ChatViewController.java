@@ -2,8 +2,10 @@ package client.view.chatview;
 
 import client.core.ViewHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import shared.User;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class ChatViewController
 {
@@ -23,6 +25,7 @@ public class ChatViewController
   @FXML public void onExitButton()
   {
     viewHandler.startView("logIn");
+    chatViewModel.clear();
   }
 
   @FXML public void onFriendsButton()
@@ -33,5 +36,16 @@ public class ChatViewController
   @FXML public void onSendMessageButton()
   {
     chatViewModel.sendMessage();
+    messageTextArea.clear();
+    receiveMessageTextArea.setScrollTop(Double.MAX_VALUE);
+  }
+
+
+  public void onEnter(KeyEvent keyEvent)
+  {
+    if (keyEvent.getCode().equals(KeyCode.ENTER))
+    {
+      onSendMessageButton();
+    }
   }
 }

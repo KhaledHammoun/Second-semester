@@ -1,16 +1,14 @@
 package client.network;
 
 import shared.*;
-import shared.util.PropertyChangeSubject;
 
-import javax.sound.midi.Soundbank;
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.List;
 
 public class ClientSocket implements Client
 {
@@ -23,31 +21,41 @@ public class ClientSocket implements Client
 
   @Override public void startClient()
   {
-    new Thread(this::listenForMessage).start();
-    new Thread(this::getUsers).start();
-    new Thread(this::getFriends).start();
+    new Thread(this::listenForChanges).start();
   }
 
-  private void listenForMessage()
+  private void listenForChanges()
   {
     try
     {
       Socket socket = new Socket("127.0.0.1", 9596);
-      ObjectOutputStream outToServer = new ObjectOutputStream(
-          socket.getOutputStream());
-      ObjectInputStream inFromServer = new ObjectInputStream(
-          socket.getInputStream());
+      ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
 
       outToServer.writeUnshared(new Request(RequestType.LISTEN, null));
       while (true)
       {
         Request request = (Request) inFromServer.readUnshared();
-        receiveMessage((Message) request.getArgument());
+        System.out.println(request.getRequest().toString());
+        if (request.getRequest().equals(RequestType.NEWMESSAGE))
+        {
+          receiveMessage((Message) request.getArgument());
+        }
+        else if (request.getRequest().equals(RequestType.NEWUSER))
+        {
+          support.firePropertyChange(RequestType.NEWUSER.toString(), null,
+              request.getArgument());
+        }
+        else if (request.getRequest().equals(RequestType.NEWFRIEND))
+        {
+          support
+              .firePropertyChange((PropertyChangeEvent) request.getArgument());
+        }
       }
     }
     catch (IOException | ClassNotFoundException e)
     {
-      System.out.println("Message failed to be received in the Client socket.");
+      System.out.println("Message failed to be received in the Client.");
     }
   }
 
@@ -60,9 +68,9 @@ public class ClientSocket implements Client
           socket.getOutputStream());
 
       outToServer.writeUnshared(new Request(RequestType.ADDUSER, user));
+      socket.close();
     }
     catch (IOException e)
-
     {
       System.out.println(
           "Error while sending request to the server for adding a friend");
@@ -77,11 +85,10 @@ public class ClientSocket implements Client
       Socket socket = new Socket("127.0.0.1", 9596);
       ObjectOutputStream outToServer = new ObjectOutputStream(
           socket.getOutputStream());
-      ObjectInputStream inFromServer = new ObjectInputStream(
-          socket.getInputStream());
       User[] friendToAdd = {user, friend};
       outToServer
           .writeUnshared(new Request(RequestType.ADDFRIEND, friendToAdd));
+      socket.close();
     }
     catch (IOException e)
     {
@@ -101,6 +108,7 @@ public class ClientSocket implements Client
           socket.getInputStream());
 
       outToServer.writeUnshared(new Request(RequestType.SENDMESSAGE, message));
+      socket.close();
     }
     catch (IOException e)
     {
@@ -110,7 +118,7 @@ public class ClientSocket implements Client
 
   @Override public void getUsers()
   {
-    try
+    /*try
     {
       Socket socket = new Socket("127.0.0.1", 9596);
       ObjectOutputStream outToServer = new ObjectOutputStream(
@@ -123,18 +131,19 @@ public class ClientSocket implements Client
       while (true)
       {
         Request request = (Request) inFromServer.readUnshared();
-        support.firePropertyChange(RequestType.NEWUSER.toString(), null, (User) request.getArgument());
+        support.firePropertyChange(RequestType.NEWUSER.toString(), null,
+            (User) request.getArgument());
       }
     }
     catch (IOException | ClassNotFoundException e)
     {
       System.out.println("Error while getting all the users form the server");
-    }
+    }*/
   }
 
   @Override public void getFriends()
   {
-    try
+    /*try
     {
       Socket socket = new Socket("127.0.0.1", 9596);
       ObjectOutputStream ouToServer = new ObjectOutputStream(
@@ -155,7 +164,7 @@ public class ClientSocket implements Client
     {
       e.printStackTrace();
     }
-
+*/
   }
 
   @Override public void receiveMessage(Message message)
