@@ -22,15 +22,18 @@ public class ChatModelManager implements ChatModel
   {
     this.client = client;
     client.startClient();
-    client.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), this::receiveMessage);
-    client.addPropertyChangeListener(RequestType.NEWFRIEND.toString(), this::getFriends);
-    client.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::newUsersAdded);
+    client.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(),
+        this::receiveMessage);
+    client.addPropertyChangeListener(RequestType.NEWFRIEND.toString(),
+        this::getFriends);
+    client.addPropertyChangeListener(RequestType.NEWUSER.toString(),
+        this::newUsersAdded);
   }
 
   private void newUsersAdded(PropertyChangeEvent event)
   {
-    User user = (User) event.getNewValue();
-    support.firePropertyChange(RequestType.NEWUSER.toString(), null, user);
+    Users users = (Users) event.getNewValue();
+    support.firePropertyChange(RequestType.NEWUSER.toString(), null, users.copy());
   }
 
   @Override public void addUser(User user)
@@ -50,10 +53,8 @@ public class ChatModelManager implements ChatModel
 
   @Override public void getFriends(PropertyChangeEvent event)
   {
-    if (currentUser != null &&currentUser.getUsername().equals(((User) event.getOldValue()).getUsername()))
-    {
+   // if (currentUser != null && currentUser.getUsername().equals(((User) event.getOldValue()).getUsername()))
       support.firePropertyChange(event);
-    }
   }
 
   @Override public void receiveMessage(PropertyChangeEvent event)

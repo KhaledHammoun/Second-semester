@@ -36,15 +36,17 @@ public class ClientSocket implements Client
       while (true)
       {
         Request request = (Request) inFromServer.readUnshared();
-        System.out.println(request.getRequest().toString());
+
         if (request.getRequest().equals(RequestType.NEWMESSAGE))
         {
           receiveMessage((Message) request.getArgument());
         }
         else if (request.getRequest().equals(RequestType.NEWUSER))
         {
-          support.firePropertyChange(RequestType.NEWUSER.toString(), null,
-              request.getArgument());
+          Users users = (Users) request.getArgument();
+          System.out.println(users.getAllUsers());
+          support.firePropertyChange(RequestType.NEWUSER.toString(), -1,
+              users);
         }
         else if (request.getRequest().equals(RequestType.NEWFRIEND))
         {
@@ -85,6 +87,7 @@ public class ClientSocket implements Client
       Socket socket = new Socket("127.0.0.1", 9596);
       ObjectOutputStream outToServer = new ObjectOutputStream(
           socket.getOutputStream());
+
       User[] friendToAdd = {user, friend};
       outToServer
           .writeUnshared(new Request(RequestType.ADDFRIEND, friendToAdd));
@@ -104,8 +107,6 @@ public class ClientSocket implements Client
       Socket socket = new Socket("127.0.0.1", 9596);
       ObjectOutputStream outToServer = new ObjectOutputStream(
           socket.getOutputStream());
-      ObjectInputStream inFromServer = new ObjectInputStream(
-          socket.getInputStream());
 
       outToServer.writeUnshared(new Request(RequestType.SENDMESSAGE, message));
       socket.close();

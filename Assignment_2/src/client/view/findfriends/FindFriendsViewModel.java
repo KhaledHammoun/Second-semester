@@ -5,7 +5,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.RequestType;
 import shared.User;
+import shared.Users;
 
+import java.util.List;
 import java.beans.PropertyChangeEvent;
 
 public class FindFriendsViewModel
@@ -22,9 +24,10 @@ public class FindFriendsViewModel
 
   private void addUser(PropertyChangeEvent event)
   {
-    User user = (User) event.getNewValue();
-    System.out.println(user.getUsername());
-    users.add(user);
+    Users newUsers = (Users) event.getNewValue();
+    newUsers.getAllUsers().remove(chatModel.getCurrentUser());
+    users.clear();
+    users.addAll(newUsers.getAllUsers());
   }
 
   public ObservableList<User> getUsers()

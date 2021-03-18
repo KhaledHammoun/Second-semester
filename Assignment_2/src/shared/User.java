@@ -50,6 +50,16 @@ public class User implements Serializable
     return registered;
   }
 
+  public boolean equals(Object obj)
+  {
+    if(!(obj instanceof User))
+    {
+      return false;
+    }
+    User other = (User) obj;
+
+    return this.username.equals(other.username);
+  }
   public String toString()
   {
     return username;

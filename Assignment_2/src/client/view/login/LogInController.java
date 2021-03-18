@@ -31,7 +31,7 @@ public class LogInController
     Alert info = new Alert(Alert.AlertType.INFORMATION);
     info.setContentText("Type your username if existing user and press Login."
         + "\nIf a new user, type your preferred username and press log in. The system"
-        + "will automatically create your account.");
+        + " will automatically create your account.");
     info.setHeaderText("INFO");
     info.setHeight(300);
     info.show();

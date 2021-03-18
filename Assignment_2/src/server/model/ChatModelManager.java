@@ -22,7 +22,7 @@ public class ChatModelManager implements ChatModel
   @Override public void addUser(User user)
   {
     users.addUser(user);
-    support.firePropertyChange(RequestType.NEWUSER.toString(), null, user);
+    support.firePropertyChange(RequestType.NEWUSER.toString(), null, users);
   }
 
   @Override public void addFriend(User user, User friend)
@@ -33,6 +33,7 @@ public class ChatModelManager implements ChatModel
 
   @Override public void sendMessage(Message message)
   {
+
     support.firePropertyChange(RequestType.NEWMESSAGE.toString(), null, message);
   }
 

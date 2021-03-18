@@ -13,8 +13,6 @@ import java.io.IOException;
 
 public class ViewHandler
 {
-  // TODO: 16-03-2021 Opens all the vies in new Stage. Fix it!
-
   private ViewModelFactory viewModelFactory;
   private Stage stage;
   private Parent root;

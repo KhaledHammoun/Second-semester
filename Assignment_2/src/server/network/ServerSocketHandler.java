@@ -35,16 +35,20 @@ public class ServerSocketHandler implements Runnable
 
       if (request.getRequest().equals(RequestType.LISTEN))
       {
-        chatModel.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), this::message);
-        chatModel.addPropertyChangeListener(RequestType.NEWFRIEND.toString(), this::newFriendAdded);
-        chatModel.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::newUserAdded);
+        connections.addConnection(this);
+        chatModel.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(),
+            this::message);
+        chatModel.addPropertyChangeListener(RequestType.NEWFRIEND.toString(),
+            this::newFriendAdded);
+        chatModel.addPropertyChangeListener(RequestType.NEWUSER.toString(),
+            this::newUserAdded);
       }
       else if (request.getRequest().equals(RequestType.ADDFRIEND))
       {
         User[] users = (User[]) request.getArgument();
         chatModel.addFriend(users[0], users[1]);
       }
-      else if(request.getRequest().equals(RequestType.ADDUSER))
+      else if (request.getRequest().equals(RequestType.ADDUSER))
       {
         chatModel.addUser((User) request.getArgument());
       }
@@ -64,7 +68,11 @@ public class ServerSocketHandler implements Runnable
   {
     try
     {
-      outToClient.writeUnshared(new Request(RequestType.NEWUSER, event.getNewValue()));
+      Users users = ((Users) event.getNewValue()).copy();
+      System.out.println(users.getAllUsers());
+      outToClient
+          .writeUnshared(new Request(RequestType.NEWUSER, users));
+      outToClient.flush();
     }
     catch (IOException e)
     {
@@ -86,7 +94,7 @@ public class ServerSocketHandler implements Runnable
 
   private void message(PropertyChangeEvent event)
   {
-    Message message = new Message((User) event.getOldValue(), (String) event.getNewValue());
+    Message message = (Message) event.getNewValue();
     connections.broadcastMessage(message);
   }
 
@@ -94,7 +102,7 @@ public class ServerSocketHandler implements Runnable
   {
     try
     {
-      outToClient.writeUnshared(new Request(RequestType.NEWMESSAGE,message));
+      outToClient.writeUnshared(new Request(RequestType.NEWMESSAGE, message));
     }
     catch (IOException e)
     {
