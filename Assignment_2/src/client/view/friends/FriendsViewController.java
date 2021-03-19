@@ -1,15 +1,12 @@
 package client.view.friends;
 
 import client.core.ViewHandler;
-import client.view.login.LogInViewModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.User;
 
-import javax.sound.midi.Soundbank;
 import java.util.Date;
 
 public class FriendsViewController
@@ -17,7 +14,7 @@ public class FriendsViewController
   @FXML private TableView<User> friendsTable;
   @FXML private TableColumn<User, String> usernameColumn;
   @FXML private TableColumn<User, Date> registered;
-  private FriendsViewModel friendsViewModel ;
+  private FriendsViewModel friendsViewModel;
   private ViewHandler viewHandler;
 
 

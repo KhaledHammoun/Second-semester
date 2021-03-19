@@ -6,7 +6,6 @@ import javafx.collections.ObservableList;
 import shared.RequestType;
 import shared.User;
 
-import java.util.List;
 import java.beans.PropertyChangeEvent;
 
 public class FriendsViewModel

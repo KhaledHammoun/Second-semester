@@ -1,6 +1,5 @@
 package client.network;
 
-import com.google.gson.Gson;
 import shared.*;
 
 import java.beans.PropertyChangeEvent;
@@ -10,7 +9,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class ClientSocket implements Client
 {
@@ -23,7 +21,9 @@ public class ClientSocket implements Client
 
   @Override public void startClient()
   {
-    new Thread(this::listenForChanges).start();
+    Thread thread = new Thread(this::listenForChanges);
+    thread.setDaemon(true);
+    thread.start();
   }
 
   private synchronized void listenForChanges()
@@ -46,7 +46,6 @@ public class ClientSocket implements Client
         else if (request.getRequest().equals(RequestType.NEWUSER))
         {
           Users users = (Users) request.getArgument();
-          System.out.println(request);
           support.firePropertyChange(RequestType.NEWUSER.toString(), -1,
               users);
         }

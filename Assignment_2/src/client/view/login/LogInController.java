@@ -1,7 +1,6 @@
 package client.view.login;
 
 import client.core.ViewHandler;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -26,7 +25,7 @@ public class LogInController
     viewHandler.startView("chat");
   }
 
-  @FXML public void onInfoButton(ActionEvent actionEvent)
+  @FXML public void onInfoButton()
   {
     Alert info = new Alert(Alert.AlertType.INFORMATION);
     info.setContentText("Type your username if existing user and press Login."
@@ -37,7 +36,7 @@ public class LogInController
     info.show();
   }
 
-  @FXML public void onEnterPressed(ActionEvent keyEvent)
+  @FXML public void onEnterPressed()
   {
       onLogInButton();
   }

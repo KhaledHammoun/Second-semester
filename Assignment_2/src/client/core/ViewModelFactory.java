@@ -1,7 +1,6 @@
 package client.core;
 
 import client.view.chatview.ChatViewModel;
-import client.view.findfriends.FindFriendsController;
 import client.view.findfriends.FindFriendsViewModel;
 import client.view.friends.FriendsViewModel;
 import client.view.login.LogInViewModel;

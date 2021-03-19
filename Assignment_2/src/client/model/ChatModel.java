@@ -2,11 +2,9 @@ package client.model;
 
 import shared.Message;
 import shared.User;
-import shared.Users;
 import shared.util.PropertyChangeSubject;
 
 import java.beans.PropertyChangeEvent;
-import java.util.List;
 
 public interface ChatModel extends PropertyChangeSubject
 {

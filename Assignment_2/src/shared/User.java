@@ -28,15 +28,6 @@ public class User implements Serializable
     return friends;
   }
 
-  public User getFriend(User user)
-  {
-    if (friends.contains(user))
-    {
-      return friends.get(friends.indexOf(user));
-    }
-    return null;
-  }
-
   public void addFriend(User user)
   {
     if (!(friends.contains(user)))

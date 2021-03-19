@@ -1,11 +1,8 @@
 package client.view.findfriends;
 
 import client.core.ViewHandler;
-import client.view.login.LogInViewModel;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.DateCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,12 +28,12 @@ public class FindFriendsController
     friendsTable.setItems(findFriendsViewModel.getUsers());
   }
 
-  @FXML public void onBackButton(ActionEvent actionEvent)
+  @FXML public void onBackButton()
   {
     viewHandler.startView("friends");
   }
 
-  @FXML public void onAddFriendsButton(ActionEvent actionEvent)
+  @FXML public void onAddFriendsButton()
   {
     User user = (User) friendsTable.getSelectionModel().getSelectedItem();
     if (user != null)

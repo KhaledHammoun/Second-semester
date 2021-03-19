@@ -7,7 +7,6 @@ import shared.RequestType;
 import shared.User;
 import shared.Users;
 
-import java.util.List;
 import java.beans.PropertyChangeEvent;
 
 public class FindFriendsViewModel

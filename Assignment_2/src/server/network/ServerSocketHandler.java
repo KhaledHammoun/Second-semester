@@ -3,13 +3,11 @@ package server.network;
 import server.model.ChatModel;
 import shared.*;
 
-import java.util.List;
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class ServerSocketHandler implements Runnable
 {
@@ -88,7 +86,6 @@ public class ServerSocketHandler implements Runnable
     try
     {
       Users users = (Users) event.getNewValue();
-      System.out.println(users.getAllUsers());
       outToClient
           .writeUnshared(new Request(RequestType.NEWUSER, users));
       outToClient.reset();

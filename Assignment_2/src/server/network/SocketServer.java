@@ -29,7 +29,9 @@ public class SocketServer
         ServerSocketHandler serverSocketHandler = new ServerSocketHandler(
             socket, chatModel, connectionsPool);
 
-        new Thread(serverSocketHandler).start();
+        Thread thread = new Thread(serverSocketHandler);
+        thread.setDaemon(true);
+        thread.start();
       }
     }
     catch (IOException e)

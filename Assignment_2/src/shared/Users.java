@@ -1,13 +1,8 @@
 package shared;
 
-import shared.util.Status;
-
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 public class Users implements Serializable
 {

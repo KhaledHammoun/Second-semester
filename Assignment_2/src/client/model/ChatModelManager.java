@@ -6,11 +6,9 @@ import shared.RequestType;
 import shared.User;
 import shared.Users;
 
-import java.util.List;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 
 public class ChatModelManager implements ChatModel
 {

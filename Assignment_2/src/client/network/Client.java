@@ -1,11 +1,8 @@
 package client.network;
 
-import shared.Users;
 import shared.Message;
 import shared.User;
 import shared.util.PropertyChangeSubject;
-
-import java.util.List;
 
 public interface Client extends PropertyChangeSubject
 {

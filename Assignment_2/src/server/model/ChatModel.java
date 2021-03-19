@@ -12,7 +12,5 @@ public interface ChatModel extends PropertyChangeSubject
   void addUser(User user);
   void addFriend(User user, User friend);
   void sendMessage(Message message);
-  Users getAllUsers();
   List<User> getFriends(User currentUser);
-  void receiveMessage(Message message);
 }

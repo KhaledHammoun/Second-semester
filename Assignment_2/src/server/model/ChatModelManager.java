@@ -37,19 +37,9 @@ public class ChatModelManager implements ChatModel
     support.firePropertyChange(RequestType.NEWMESSAGE.toString(), null, message);
   }
 
-  @Override public Users getAllUsers()
-  {
-    return users;
-  }
-
   @Override public List<User> getFriends(User currentUser)
   {
     return users.getUser(currentUser).getFriends();
-  }
-
-  @Override public void receiveMessage(Message message)
-  {
-
   }
 
   @Override public void addPropertyChangeListener(String name,
