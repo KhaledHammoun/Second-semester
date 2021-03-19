@@ -1,5 +1,6 @@
 package client.network;
 
+import com.google.gson.Gson;
 import shared.*;
 
 import java.beans.PropertyChangeEvent;
@@ -24,7 +25,7 @@ public class ClientSocket implements Client
     new Thread(this::listenForChanges).start();
   }
 
-  private void listenForChanges()
+  private synchronized void listenForChanges()
   {
     try
     {
@@ -44,7 +45,7 @@ public class ClientSocket implements Client
         else if (request.getRequest().equals(RequestType.NEWUSER))
         {
           Users users = (Users) request.getArgument();
-          System.out.println(users.getAllUsers());
+          System.out.println(request);
           support.firePropertyChange(RequestType.NEWUSER.toString(), -1,
               users);
         }

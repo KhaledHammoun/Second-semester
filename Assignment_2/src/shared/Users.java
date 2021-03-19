@@ -11,7 +11,6 @@ import java.util.Date;
 
 public class Users implements Serializable
 {
-  private PropertyChangeSupport support = new PropertyChangeSupport(this);
   private List<User> users;
 
   public Users()
@@ -66,5 +65,10 @@ public class Users implements Serializable
     Users other = (Users) obj;
 
     return this.users.equals(other.users);
+  }
+
+  public String toString()
+  {
+    return users.toString();
   }
 }

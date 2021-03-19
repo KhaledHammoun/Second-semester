@@ -22,4 +22,9 @@ public class Request implements Serializable
   {
     return argument;
   }
+
+  public String toString()
+  {
+    return "Type: " + request + " Arg: " + argument.toString();
+  }
 }

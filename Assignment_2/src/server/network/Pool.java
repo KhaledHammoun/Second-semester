@@ -3,6 +3,7 @@ package server.network;
 import server.model.ChatModel;
 import shared.Message;
 import shared.User;
+import shared.Users;
 
 import java.util.ArrayList;
 import java.util.List;
