@@ -28,6 +28,12 @@ public class ChatModelManager implements ChatModel
         this::getFriends);
     client.addPropertyChangeListener(RequestType.NEWUSER.toString(),
         this::newUsersAdded);
+    client.addPropertyChangeListener(RequestType.GETCONNECTIONS.toString(), this::numberOfConnections);
+  }
+
+  private void numberOfConnections(PropertyChangeEvent event)
+  {
+    support.firePropertyChange(event);
   }
 
   private void newUsersAdded(PropertyChangeEvent event)
@@ -64,11 +70,17 @@ public class ChatModelManager implements ChatModel
   @Override public void setCurrentUser(User user)
   {
     currentUser = user;
+    support.firePropertyChange(RequestType.CURRENTUSER.toString(), null, currentUser);
   }
 
   @Override public User getCurrentUser()
   {
     return currentUser;
+  }
+
+  @Override public void getNumberOfConnections()
+  {
+    client.getNumberOfConnections();
   }
 
   @Override public void addPropertyChangeListener(String name,

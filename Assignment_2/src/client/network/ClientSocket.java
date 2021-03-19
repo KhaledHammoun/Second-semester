@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class ClientSocket implements Client
 {
@@ -118,61 +119,29 @@ public class ClientSocket implements Client
     }
   }
 
-  @Override public void getUsers()
-  {
-    /*try
-    {
-      Socket socket = new Socket("127.0.0.1", 9596);
-      ObjectOutputStream outToServer = new ObjectOutputStream(
-          socket.getOutputStream());
-      ObjectInputStream inFromServer = new ObjectInputStream(
-          socket.getInputStream());
-
-      outToServer.writeUnshared(new Request(RequestType.NEWUSER, null));
-
-      while (true)
-      {
-        Request request = (Request) inFromServer.readUnshared();
-        support.firePropertyChange(RequestType.NEWUSER.toString(), null,
-            (User) request.getArgument());
-      }
-    }
-    catch (IOException | ClassNotFoundException e)
-    {
-      System.out.println("Error while getting all the users form the server");
-    }*/
-  }
-
-  @Override public void getFriends()
-  {
-    /*try
-    {
-      Socket socket = new Socket("127.0.0.1", 9596);
-      ObjectOutputStream ouToServer = new ObjectOutputStream(
-          socket.getOutputStream());
-      ObjectInputStream inFromServer = new ObjectInputStream(
-          socket.getInputStream());
-
-      ouToServer.writeUnshared(new Request(RequestType.NEWFRIEND, null));
-      while (true)
-      {
-        User friend = (User) inFromServer.readUnshared();
-
-        support
-            .firePropertyChange(RequestType.NEWFRIEND.toString(), null, friend);
-      }
-    }
-    catch (IOException | ClassNotFoundException e)
-    {
-      e.printStackTrace();
-    }
-*/
-  }
-
   @Override public void receiveMessage(Message message)
   {
     support
         .firePropertyChange(RequestType.NEWMESSAGE.toString(), null, message);
+  }
+
+  @Override public void getNumberOfConnections()
+  {
+    try
+    {
+      Socket socket = new Socket("127.0.0.1", 9596);
+      ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
+      ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+
+      outToServer.writeUnshared(new Request(RequestType.GETCONNECTIONS, null));
+      Request request = (Request) inFromServer.readUnshared();
+
+      support.firePropertyChange(request.getRequest().toString(), null, request.getArgument());
+    }
+    catch (IOException | ClassNotFoundException e)
+    {
+      System.out.println("Unable to connect to the server and retrieve the number of connections");
+    }
   }
 
   @Override public void addPropertyChangeListener(String name,

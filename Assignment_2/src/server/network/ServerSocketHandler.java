@@ -59,10 +59,27 @@ public class ServerSocketHandler implements Runnable
         Message message = (Message) request.getArgument();
         connections.broadcastMessage(message);
       }
+      else if (request.getRequest().equals(RequestType.GETCONNECTIONS))
+      {
+        getNumberOfConnections();
+      }
     }
     catch (IOException | ClassNotFoundException e)
     {
       System.out.println("Error in ServerSocketHandler.");
+    }
+  }
+
+  private void getNumberOfConnections()
+  {
+    try
+    {
+      int connected = connections.getNumberOfConnections();
+      outToClient.writeUnshared(new Request(RequestType.GETCONNECTIONS, connected));
+    }
+    catch (IOException e)
+    {
+      System.out.println("Failed sending the number of connections to the client");
     }
   }
 

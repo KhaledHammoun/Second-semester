@@ -14,6 +14,8 @@ public class ChatViewModel
   private StringProperty message;
   private StringProperty messageToSend;
   private StringBuilder newMessage;
+  private StringProperty user;
+  private StringProperty numberOfConnections;
 
 
   public ChatViewModel(ChatModel chatModel)
@@ -22,8 +24,24 @@ public class ChatViewModel
     message = new SimpleStringProperty();
     messageToSend = new SimpleStringProperty();
     newMessage = new StringBuilder();
+    user = new SimpleStringProperty("Logged in as: ");
+    numberOfConnections = new SimpleStringProperty("Number of users");
+
     chatModel.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(),
         (x) -> setMessage((Message) x.getNewValue()));
+    chatModel.addPropertyChangeListener(RequestType.CURRENTUSER.toString(), this::setUser);
+    chatModel.addPropertyChangeListener(RequestType.GETCONNECTIONS.toString(), this::numberOfConnections);
+  }
+
+  private void numberOfConnections(PropertyChangeEvent event)
+  {
+    String connected = String.valueOf((int) event.getNewValue());
+    numberOfConnections.set(connected);
+  }
+
+  private void setUser(PropertyChangeEvent event)
+  {
+    user.set("Logged in as: " + event.getNewValue());
   }
 
   private void setMessage(Message message)
@@ -38,6 +56,11 @@ public class ChatViewModel
     chatModel.sendMessage(message);
   }
 
+  public void getNumberOfConnections()
+  {
+    chatModel.getNumberOfConnections();
+  }
+
   public StringProperty messageProperty()
   {
     return message;
@@ -46,6 +69,16 @@ public class ChatViewModel
   public StringProperty messageToSendProperty()
   {
     return messageToSend;
+  }
+
+  public StringProperty userProperty()
+  {
+    return user;
+  }
+
+  public StringProperty numberOfConnectionsProperty()
+  {
+    return numberOfConnections;
   }
 
   public void clear()

@@ -2,9 +2,6 @@ package server.network;
 
 import server.model.ChatModel;
 import shared.Message;
-import shared.User;
-import shared.Users;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,5 +28,10 @@ public class Pool
       chatModel.getFriends(message.getUser());
       connection.sendMessage(message);
     }
+  }
+
+  public int getNumberOfConnections()
+  {
+    return connections.size();
   }
 }

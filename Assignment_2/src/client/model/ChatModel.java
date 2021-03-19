@@ -17,4 +17,5 @@ public interface ChatModel extends PropertyChangeSubject
   void receiveMessage(PropertyChangeEvent event);
   void setCurrentUser(User user);
   User getCurrentUser();
+  void getNumberOfConnections();
 }
