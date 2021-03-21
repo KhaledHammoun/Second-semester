@@ -25,7 +25,6 @@ public class Pool
   {
     for (ServerSocketHandler connection : connections)
     {
-      chatModel.getFriends(message.getUser());
       connection.sendMessage(message);
     }
   }

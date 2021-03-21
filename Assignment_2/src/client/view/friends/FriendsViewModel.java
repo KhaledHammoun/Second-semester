@@ -23,7 +23,10 @@ public class FriendsViewModel
   private void addNewFriend(PropertyChangeEvent event)
   {
     User friend = (User) event.getNewValue();
-    friends.add(friend);
+    if (chatModel.getCurrentUser().equals(event.getOldValue()))
+    {
+      friends.add(friend);
+    }
   }
 
   public ObservableList<User> getFriends()
