@@ -78,7 +78,6 @@ public class ClientSocket implements Client
       System.out.println(
           "Error while sending request to the server for adding a friend");
     }
-
   }
 
   @Override public void addFriend(User user, User friend)

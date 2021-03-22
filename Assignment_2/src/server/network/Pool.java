@@ -12,8 +12,8 @@ public class Pool
 
   public Pool(ChatModel chatModel)
   {
-    this.chatModel = chatModel;
     connections = new ArrayList<>();
+    this.chatModel = chatModel;
   }
 
   public void addConnection(ServerSocketHandler connection)
@@ -21,7 +21,7 @@ public class Pool
     connections.add(connection);
   }
 
-  public void broadcastMessage(Message message)
+  public synchronized void broadcastMessage(Message message)
   {
     for (ServerSocketHandler connection : connections)
     {
