@@ -1,5 +1,7 @@
 package shared;
 
+import server.network.ServerSocketHandler;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,18 @@ public class Users implements Serializable
     }
     addUser(user);
     return user;
+  }
+
+  public User getUserForClient(User user)
+  {
+    User temp = users.get(users.indexOf(user));
+    temp.removeReference();
+    return temp;
+  }
+
+  public ServerSocketHandler getReference(User user)
+  {
+    return users.get(users.indexOf(user)).getReference();
   }
 
   public void addFriend(User user, User friend)

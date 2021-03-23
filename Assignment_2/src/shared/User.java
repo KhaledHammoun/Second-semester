@@ -1,5 +1,7 @@
 package shared;
 
+import server.network.ServerSocketHandler;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,14 +12,25 @@ public class User implements Serializable
   private String username;
   private Date registered;
   private List<User> friends;
+  private ServerSocketHandler reference;
 
-  public User(String userName)
+  public User(String userName, ServerSocketHandler reference)
   {
     this.username = userName;
     registered = new Date();
     friends = new ArrayList<>();
+    this.reference = reference;
   }
 
+  public ServerSocketHandler getReference()
+  {
+    return reference;
+  }
+
+  public void removeReference()
+  {
+    reference = null;
+  }
   public String getUsername()
   {
     return username;

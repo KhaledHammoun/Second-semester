@@ -12,6 +12,8 @@
       <module fileurl="file://$PROJECT_DIR$/S05_StatePattern/S05_StatePattern.iml" filepath="$PROJECT_DIR$/S05_StatePattern/S05_StatePattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/S06_Sockets/S06_Sockets.iml" filepath="$PROJECT_DIR$/S06_Sockets/S06_Sockets.iml" />
       <module fileurl="file://$PROJECT_DIR$/S07_MVVM_Sockets/S07_MVVM_Sockets.iml" filepath="$PROJECT_DIR$/S07_MVVM_Sockets/S07_MVVM_Sockets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Clock/S14_Unit_Test_Clock.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Clock/S14_Unit_Test_Clock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Clock_White-box/S14_Unit_Test_Clock_White-box.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Clock_White-box/S14_Unit_Test_Clock_White-box.iml" />
     </modules>
   </component>
 </project>

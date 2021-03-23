@@ -26,8 +26,7 @@ public class SocketServer
       while (true)
       {
         Socket socket = serverSocket.accept();
-        ServerSocketHandler serverSocketHandler = new ServerSocketHandler(
-            socket, chatModel, connectionsPool);
+        ServerSocketHandler serverSocketHandler = new ServerSocketHandler(socket);
 
         Thread thread = new Thread(serverSocketHandler);
         thread.setDaemon(true);

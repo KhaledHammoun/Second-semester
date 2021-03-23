@@ -17,8 +17,8 @@ public class ServerSocketHandler implements Runnable
   private ObjectOutputStream outToClient;
   private ObjectInputStream inFromClient;
 
-  public ServerSocketHandler(Socket socket, ChatModel chatModel, Pool connections)
-      throws IOException
+  public ServerSocketHandler(Socket socket, ChatModel chatModel,
+      Pool connections) throws IOException
   {
     this.socket = socket;
     this.chatModel = chatModel;
@@ -36,9 +36,12 @@ public class ServerSocketHandler implements Runnable
       if (request.getRequest().equals(RequestType.LISTEN))
       {
         connections.addConnection(this);
-        chatModel.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(), this::message);
-        chatModel.addPropertyChangeListener(RequestType.NEWFRIEND.toString(), this::newFriendAdded);
-        chatModel.addPropertyChangeListener(RequestType.NEWUSER.toString(), this::newUserAdded);
+        chatModel.addPropertyChangeListener(RequestType.NEWMESSAGE.toString(),
+            this::message);
+        chatModel.addPropertyChangeListener(RequestType.NEWFRIEND.toString(),
+            this::newFriendAdded);
+        chatModel.addPropertyChangeListener(RequestType.NEWUSER.toString(),
+            this::newUserAdded);
       }
       else if (request.getRequest().equals(RequestType.ADDFRIEND))
       {
@@ -70,11 +73,13 @@ public class ServerSocketHandler implements Runnable
     try
     {
       int connected = connections.getNumberOfConnections();
-      outToClient.writeUnshared(new Request(RequestType.GETCONNECTIONS, connected));
+      outToClient
+          .writeUnshared(new Request(RequestType.GETCONNECTIONS, connected));
     }
     catch (IOException e)
     {
-      System.out.println("Failed sending the number of connections to the client");
+      System.out
+          .println("Failed sending the number of connections to the client");
     }
   }
 
