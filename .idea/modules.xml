@@ -14,6 +14,9 @@
       <module fileurl="file://$PROJECT_DIR$/S07_MVVM_Sockets/S07_MVVM_Sockets.iml" filepath="$PROJECT_DIR$/S07_MVVM_Sockets/S07_MVVM_Sockets.iml" />
       <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Clock/S14_Unit_Test_Clock.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Clock/S14_Unit_Test_Clock.iml" />
       <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Clock_White-box/S14_Unit_Test_Clock_White-box.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Clock_White-box/S14_Unit_Test_Clock_White-box.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Login/S14_Unit_Test_Login.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Login/S14_Unit_Test_Login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Queue_Advanced/S14_Unit_Test_Queue_Advanced.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Queue_Advanced/S14_Unit_Test_Queue_Advanced.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Queue_Simple/S14_Unit_Test_Queue_Simple.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Queue_Simple/S14_Unit_Test_Queue_Simple.iml" />
     </modules>
   </component>
 </project>
