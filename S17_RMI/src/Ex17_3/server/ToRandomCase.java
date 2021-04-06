@@ -16,6 +16,11 @@ public class ToRandomCase implements IToRandomCase
     @Override
     public String toRandomCase(String arg) throws RemoteException
     {
-        return arg.toLowerCase();
+        String result = "";
+        char[] charArray = arg.toCharArray();
+        for(int i = 0; i < charArray.length; i++) {
+            result += Math.random() <0.5 ? (charArray[i] + "").toUpperCase() : (charArray[i]+"").toLowerCase();
+        }
+        return result;
     }
 }
