@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<Pane prefHeight="400.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.findfriends.FindFriendsController">
+<children>
+    <TableView fx:id="friendsTable" layoutX="30.0" layoutY="14.0" prefHeight="334.0" prefWidth="300.0">
+        <columns>
+            <TableColumn fx:id="usernameColumn" prefWidth="150.0" text="Username" />
+            <TableColumn fx:id="registered" prefWidth="150.0" text="Registered" />
+        </columns>
+    </TableView>
+    <Button layoutX="268.0" layoutY="361.0" mnemonicParsing="false" onAction="#onAddFriendsButton" text="Add friend" />
+    <Button layoutX="215.0" layoutY="361.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
+</children>
+</Pane>

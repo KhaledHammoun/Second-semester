@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Assignment_1/Assignment_1.iml" filepath="$PROJECT_DIR$/Assignment_1/Assignment_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Assignment_2/Assignment_2.iml" filepath="$PROJECT_DIR$/Assignment_2/Assignment_2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/S17_RMI/Ex17_1.iml" filepath="$PROJECT_DIR$/S17_RMI/Ex17_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Assignment_3/Assignment_3.iml" filepath="$PROJECT_DIR$/Assignment_3/Assignment_3.iml" />
       <module fileurl="file://$PROJECT_DIR$/IdeaProject.iml" filepath="$PROJECT_DIR$/IdeaProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/S01_Threads/S01_Threads.iml" filepath="$PROJECT_DIR$/S01_Threads/S01_Threads.iml" />
       <module fileurl="file://$PROJECT_DIR$/S02_ObserverPattern/S02_ObserverPattern.iml" filepath="$PROJECT_DIR$/S02_ObserverPattern/S02_ObserverPattern.iml" />
@@ -18,7 +18,8 @@
       <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Login/S14_Unit_Test_Login.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Login/S14_Unit_Test_Login.iml" />
       <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Queue_Advanced/S14_Unit_Test_Queue_Advanced.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Queue_Advanced/S14_Unit_Test_Queue_Advanced.iml" />
       <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Queue_Simple/S14_Unit_Test_Queue_Simple.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Queue_Simple/S14_Unit_Test_Queue_Simple.iml" />
-      <module fileurl="file://$PROJECT_DIR$/S17_RMI/S17_RMI.iml" filepath="$PROJECT_DIR$/S17_RMI/S17_RMI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S15_RMI/S15_RMI.iml" filepath="$PROJECT_DIR$/S15_RMI/S15_RMI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S16_Singeltone/S16_Singeltone.iml" filepath="$PROJECT_DIR$/S16_Singeltone/S16_Singeltone.iml" />
     </modules>
   </component>
 </project>
