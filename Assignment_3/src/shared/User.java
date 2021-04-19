@@ -9,31 +9,16 @@ public class User implements Serializable
 {
   private String username;
   private Date registered;
-  private List<User> friends;
 
   public User(String userName)
   {
     this.username = userName;
     registered = new Date();
-    friends = new ArrayList<>();
   }
 
   public String getUsername()
   {
     return username;
-  }
-
-  public List<User> getFriends()
-  {
-    return friends;
-  }
-
-  public void addFriend(User user)
-  {
-    if (!(friends.contains(user)))
-    {
-      friends.add(user);
-    }
   }
 
   public Date getRegistered()

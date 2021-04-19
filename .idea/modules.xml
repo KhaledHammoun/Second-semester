@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/S14_Unit_Test_Queue_Simple/S14_Unit_Test_Queue_Simple.iml" filepath="$PROJECT_DIR$/S14_Unit_Test_Queue_Simple/S14_Unit_Test_Queue_Simple.iml" />
       <module fileurl="file://$PROJECT_DIR$/S15_RMI/S15_RMI.iml" filepath="$PROJECT_DIR$/S15_RMI/S15_RMI.iml" />
       <module fileurl="file://$PROJECT_DIR$/S16_Singeltone/S16_Singeltone.iml" filepath="$PROJECT_DIR$/S16_Singeltone/S16_Singeltone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S17_Adapter_Pattern/S17_Adapter_Pattern.iml" filepath="$PROJECT_DIR$/S17_Adapter_Pattern/S17_Adapter_Pattern.iml" />
     </modules>
   </component>
 </project>

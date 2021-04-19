@@ -32,11 +32,6 @@ public class Users implements Serializable
     return user;
   }
 
-  public void addFriend(User user, User friend)
-  {
-    user.addFriend(friend);
-  }
-
   public List<User> getAllUsers()
   {
     return users;
