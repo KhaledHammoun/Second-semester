@@ -23,6 +23,7 @@
       <module fileurl="file://$PROJECT_DIR$/S17_Adapter_Pattern/S17_Adapter_Pattern.iml" filepath="$PROJECT_DIR$/S17_Adapter_Pattern/S17_Adapter_Pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/S18_Proxy_Pattern/S18_Proxy_Pattern.iml" filepath="$PROJECT_DIR$/S18_Proxy_Pattern/S18_Proxy_Pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/S19_Strategy_Pattern/S19_Strategy_Pattern.iml" filepath="$PROJECT_DIR$/S19_Strategy_Pattern/S19_Strategy_Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S20_Producer_Cosumer_Pattern/S20_Producer_Cosumer_Pattern.iml" filepath="$PROJECT_DIR$/S20_Producer_Cosumer_Pattern/S20_Producer_Cosumer_Pattern.iml" />
     </modules>
   </component>
 </project>
