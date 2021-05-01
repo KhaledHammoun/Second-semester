@@ -21,6 +21,8 @@
       <module fileurl="file://$PROJECT_DIR$/S15_RMI/S15_RMI.iml" filepath="$PROJECT_DIR$/S15_RMI/S15_RMI.iml" />
       <module fileurl="file://$PROJECT_DIR$/S16_Singeltone/S16_Singeltone.iml" filepath="$PROJECT_DIR$/S16_Singeltone/S16_Singeltone.iml" />
       <module fileurl="file://$PROJECT_DIR$/S17_Adapter_Pattern/S17_Adapter_Pattern.iml" filepath="$PROJECT_DIR$/S17_Adapter_Pattern/S17_Adapter_Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S18_Proxy_Pattern/S18_Proxy_Pattern.iml" filepath="$PROJECT_DIR$/S18_Proxy_Pattern/S18_Proxy_Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S19_Strategy_Pattern/S19_Strategy_Pattern.iml" filepath="$PROJECT_DIR$/S19_Strategy_Pattern/S19_Strategy_Pattern.iml" />
     </modules>
   </component>
 </project>
