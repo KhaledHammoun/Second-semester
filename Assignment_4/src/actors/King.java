@@ -2,8 +2,8 @@ package actors;
 
 import multiton.MinedValuable;
 import singleton.Logger;
-import treasuties.Guardsman;
-import treasuties.TreasureRoomDoor;
+import treasuries.Guardsman;
+import treasuries.TreasureRoomDoor;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -26,30 +26,33 @@ public class King implements Runnable
     {
         while (true)
         {
-            int partyMoney = 50 + rnd.nextInt(100);
-            double actualMoney = 0;
+            int partyMoneyNeeded = 50 + rnd.nextInt(100);
+            double actualMoneyAcquired = 0;
             treasure.acquireWrite(this);
 
-            while (partyMoney < actualMoney)
+            while (partyMoneyNeeded > actualMoneyAcquired)
             {
                 MinedValuable toSpend = treasure.spendValuable();
                 if (toSpend == null)
                     break;
-                actualMoney += toSpend.getValue();
+                actualMoneyAcquired += toSpend.getValue();
                 valuablesToSpend.add(toSpend);
                 sleep(100, 100);
             }
 
-            if (partyMoney < actualMoney)
+            if (partyMoneyNeeded > actualMoneyAcquired)
             {
                 Logger.getInstance().log("King is angry. Everyone get beheaded.");
-                treasure.addValuable(valuablesToSpend);
+                if (valuablesToSpend.size() != 0)
+                    treasure.addValuables(valuablesToSpend);
             }
             else
             {
                 Logger.getInstance().log("Dance barty barty. BUmci Bumci!");
                 valuablesToSpend.clear();
             }
+
+            treasure.releaseWrite();
             sleep(5000, 2000);
         }
     }

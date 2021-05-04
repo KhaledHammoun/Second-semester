@@ -17,7 +17,7 @@ public class Logger
     private Logger()
     {
         logs = new ArrayList<>();
-        sdf = new SimpleDateFormat("HH:mm dd/MM/yyyy ");
+        sdf = new SimpleDateFormat("HH:mm:ss.SSS dd/MM/yyyy ");
     }
 
     public static Logger getInstance()
@@ -35,10 +35,20 @@ public class Logger
         return logger;
     }
 
-    public void log(String log)
+    public synchronized void log(String log)
     {
-        String toAdd = sdf.format(new Date()) +"\nLog: "+ log;
+        String toAdd = sdf.format(new Date()) + "\nLog: " + log;
         logs.add(toAdd);
         System.out.println(toAdd);
+    }
+
+    public synchronized String printLogs()
+    {
+        String logsToPrint = "";
+        for (String log : logs)
+        {
+            logsToPrint += log + "\n";
+        }
+        return logsToPrint;
     }
 }

@@ -1,8 +1,8 @@
 package actors;
 
 import singleton.Logger;
-import treasuties.Guardsman;
-import treasuties.TreasureRoomDoor;
+import treasuries.Guardsman;
+import treasuries.TreasureRoomDoor;
 
 import java.util.Random;
 

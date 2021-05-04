@@ -1,4 +1,4 @@
-package treasuties;
+package treasuries;
 
 import multiton.MinedValuable;
 
@@ -10,7 +10,7 @@ public interface TreasureRoomDoor
     void acquireWrite(Object who);
     void releaseRead();
     void releaseWrite();
-    void addValuable(ArrayList<MinedValuable> valuables);
+    void addValuables(ArrayList<MinedValuable> valuables);
     MinedValuable spendValuable();
     double countValuable();
 }

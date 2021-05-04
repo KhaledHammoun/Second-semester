@@ -1,4 +1,4 @@
-package treasuties;
+package treasuries;
 
 import actors.Accountant;
 import actors.King;
@@ -55,6 +55,7 @@ public class Guardsman implements TreasureRoomDoor
     @Override
     public void releaseRead()
     {
+        Logger.getInstance().log("Read access is released.");
         treasureRoom.releaseRead();
         accessGranted = false;
     }
@@ -62,15 +63,16 @@ public class Guardsman implements TreasureRoomDoor
     @Override
     public void releaseWrite()
     {
+        Logger.getInstance().log("Write access is released.");
         treasureRoom.releaseWrite();
         accessGranted = false;
     }
 
     @Override
-    public void addValuable(ArrayList<MinedValuable> valuable)
+    public void addValuables(ArrayList<MinedValuable> valuable)
     {
         if (accessGranted)
-            treasureRoom.addValuable(valuable);
+            treasureRoom.addValuables(valuable);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package treasuties;
+package treasuries;
 
 import multiton.MinedValuable;
 import singleton.Logger;
@@ -72,7 +72,7 @@ public class TreasureRoom implements TreasureRoomDoor
     }
 
     @Override
-    public synchronized void addValuable(ArrayList<MinedValuable> valuables)
+    public synchronized void addValuables(ArrayList<MinedValuable> valuables)
     {
         Logger.getInstance().log("Valuables are added to the treasury");
         items.addAll(valuables);
@@ -84,10 +84,10 @@ public class TreasureRoom implements TreasureRoomDoor
         MinedValuable valuable = null;
         if (items.size() != 0)
         {
+            Logger.getInstance().log("Valuables are taken from the treasury.");
             valuable = items.get(0);
             items.remove(valuable);
         }
-        Logger.getInstance().log("Valuables are taken from the treasury.");
         return valuable;
     }
 

@@ -5,6 +5,6 @@ public class GoldNugget implements MinedValuable
     @Override
     public double getValue()
     {
-        return 6.3;
+        return 20.5;
     }
 }

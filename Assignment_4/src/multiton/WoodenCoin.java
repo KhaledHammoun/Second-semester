@@ -5,6 +5,6 @@ public class WoodenCoin implements MinedValuable
     @Override
     public double getValue()
     {
-        return 1.8;
+        return 10.8;
     }
 }

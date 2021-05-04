@@ -2,8 +2,8 @@
 
  import deposit.Deposit;
 import multiton.MinedValuable;
- import treasuties.Guardsman;
- import treasuties.TreasureRoomDoor;
+ import treasuries.Guardsman;
+ import treasuries.TreasureRoomDoor;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -37,11 +37,10 @@ import java.util.Random;
                 totalPrice += toTransport.getValue();
                 cargo.add(toTransport);
             }
-
             sleep(500, 2000);
 
             treasure.acquireWrite(this);
-            treasure.addValuable(cargo);
+            treasure.addValuables(cargo);
             cargo.clear();
             treasure.releaseWrite();
 

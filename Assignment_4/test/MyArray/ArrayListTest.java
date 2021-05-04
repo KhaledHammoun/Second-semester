@@ -7,7 +7,7 @@ import utility.collection.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayTest
+class ArrayListTest
 {
     private ArrayList<String> array;
 
