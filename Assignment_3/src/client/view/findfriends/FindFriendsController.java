@@ -1,8 +1,8 @@
 package client.view.findfriends;
 
-import client.util.View;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.util.View;
 import client.view.ViewController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
